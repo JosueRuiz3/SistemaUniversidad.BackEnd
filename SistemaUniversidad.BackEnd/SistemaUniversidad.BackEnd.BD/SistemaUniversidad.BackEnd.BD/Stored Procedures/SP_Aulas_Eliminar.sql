@@ -1,0 +1,10 @@
+﻿--PROCEDIMIENTO ALMACENADO ELIMINAR AULAS
+CREATE PROCEDURE SP_Aulas_Eliminar
+	@NumeroAula VARCHAR(10)
+	AS
+	
+	UPDATE Aulas 
+	SET
+		Activo = 0
+	WHERE 
+		NumeroAula = @NumeroAula

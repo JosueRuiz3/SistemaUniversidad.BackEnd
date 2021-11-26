@@ -1,0 +1,11 @@
+﻿--FUNCION PARA MOSTRAR REGISTRO POR ID Y MOSTRAR SOLO LOS ACTIVOS
+CREATE FUNCTION fn_CursosEnAulas_SeleccionarPorId
+(
+	@NumeroCiclo VARCHAR
+)
+RETURNS TABLE
+AS
+RETURN
+	SELECT * FROM CursosEnAulas
+	WHERE NumeroCiclo = @NumeroCiclo
+	AND Activo = 1
