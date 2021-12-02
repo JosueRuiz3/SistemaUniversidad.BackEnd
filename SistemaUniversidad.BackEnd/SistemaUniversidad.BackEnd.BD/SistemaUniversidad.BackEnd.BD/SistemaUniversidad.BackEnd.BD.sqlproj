@@ -143,6 +143,9 @@
     <Build Include="Stored Procedures\SP_CursosConProfesores_Actualizar.sql" />
     <Build Include="Stored Procedures\SP_CursosConProfesores_Eliminar.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="Functions\fn_Carreras_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_Cursos_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_Aulas_SeleccionarTodos.sql" />
     <Build Include="Functions\fn_Sedes_SeleccionarTodos.sql" />
   </ItemGroup>
   <ItemGroup>
