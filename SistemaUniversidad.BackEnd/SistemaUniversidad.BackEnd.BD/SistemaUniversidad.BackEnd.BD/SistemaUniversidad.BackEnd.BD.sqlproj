@@ -147,6 +147,13 @@
     <Build Include="Functions\fn_Cursos_SeleccionarTodos.sql" />
     <Build Include="Functions\fn_Aulas_SeleccionarTodos.sql" />
     <Build Include="Functions\fn_Sedes_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_Profesores_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_Estudiantes_SeleccionarPorTodos.sql" />
+    <Build Include="Functions\fn_CicloLectivos_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_Matriculas_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_CursosEnMatriculas_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_CursosEnAulas_SeleccionarTodos.sql" />
+    <Build Include="Functions\fn_CursosConProfesores_SeleccionarTodos.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SistemaUniversidad.BackEnd.BD.publish.xml" />
