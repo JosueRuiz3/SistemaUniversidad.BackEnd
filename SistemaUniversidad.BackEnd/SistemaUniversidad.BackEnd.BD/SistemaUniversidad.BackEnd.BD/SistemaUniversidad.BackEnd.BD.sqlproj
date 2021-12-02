@@ -143,6 +143,7 @@
     <Build Include="Stored Procedures\SP_CursosConProfesores_Actualizar.sql" />
     <Build Include="Stored Procedures\SP_CursosConProfesores_Eliminar.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="Functions\fn_Sedes_SeleccionarTodos.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SistemaUniversidad.BackEnd.BD.publish.xml" />
