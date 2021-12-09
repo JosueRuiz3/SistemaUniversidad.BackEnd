@@ -10,15 +10,12 @@ namespace SistemaUniversidad.BackEnd.API.Dtos
     {
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
         [MaxLength(10, ErrorMessage = "{0} tiene que tener máximo {1} caracteres")]
-
         public string NumeroAula { get; set; }
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
-        public string Horario { get; set; }
-
-        public bool Activo { get; set; }
+        public string NombreAula { get; set; }
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
-        public string CodigoCurso { get; set; }
+        public string CreadoPor { get; set; }
     }
 }

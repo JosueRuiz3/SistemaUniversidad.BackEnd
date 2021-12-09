@@ -6,11 +6,9 @@ namespace SistemaUniversidad.BackEnd.API.Models
 	{
 		public string NumeroAula { get; set; }
 
-		public string Horario { get; set; }
+		public string NombreAula { get; set; }
 
 		public bool Activo { get; set; }
-
-		public string CodigoCurso { get; set; }
 
 		public DateTime FechaCreacion { get; set; }
 

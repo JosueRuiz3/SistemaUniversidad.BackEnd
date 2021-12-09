@@ -40,9 +40,8 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             AulaDto AulaDTO = new();
 
             AulaDTO.NumeroAula = Aulaseleccionada.NumeroAula;
-            AulaDTO.Horario = Aulaseleccionada.Horario;
-            AulaDTO.CodigoCurso = Aulaseleccionada.CodigoCurso;
-            AulaDTO.Activo = Aulaseleccionada.Activo;
+            AulaDTO.NombreAula = Aulaseleccionada.NombreAula;
+            AulaDTO.CreadoPor = Aulaseleccionada.CreadoPor;
 
             return Ok(AulaDTO);
         }
@@ -59,10 +58,8 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             Aula AulaPorInsertar = new();
 
             AulaPorInsertar.NumeroAula = AulaDTO.NumeroAula;
-            AulaPorInsertar.Horario = AulaDTO.Horario;
-            AulaPorInsertar.CodigoCurso = AulaDTO.CodigoCurso;
-
-            AulaPorInsertar.CreadoPor = "diazgs";
+            AulaPorInsertar.NombreAula = AulaDTO.NombreAula;
+            AulaPorInsertar.CreadoPor = AulaDTO.CreadoPor;
 
             Aulas.Insertar(AulaPorInsertar);
 
@@ -90,12 +87,11 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             Aula AulaPorActualizar = new();
 
             AulaPorActualizar.NumeroAula = AulaDTO.NumeroAula;
-            AulaPorActualizar.Horario = AulaDTO.Horario;
-            AulaPorActualizar.CodigoCurso = AulaDTO.CodigoCurso;
-            AulaPorActualizar.Activo = AulaDTO.Activo;
+            AulaPorActualizar.NombreAula = AulaDTO.NombreAula;
+            AulaPorActualizar.CreadoPor = AulaDTO.CreadoPor;
 
             AulaPorActualizar.FechaModificacion = System.DateTime.Now;
-            AulaPorActualizar.ModificadoPor = "diazgs";
+            AulaPorActualizar.ModificadoPor = "Ruiz";
            
             Aulas.Actualizar(AulaPorActualizar);
 

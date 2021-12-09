@@ -19,14 +19,13 @@ namespace SistemaUniversidad.BackEnd.API.Repository
         }
         public void Actualizar(Aula aula)
         {
-            var query = "UPDATE Aula SET Horario = @Horario, CodigoCurso  = @CodigoCurso, FechaModificacion = @FechaModificacion, ModificadoPor = @ModificadoPor WHERE NumeroAula = @NumeroAula";
+            var query = "UPDATE Aulas SET NumeroAula = @NumeroAula, NombreAula = @NombreAula, FechaModificacion = @FechaModificacion, ModificadoPor = @ModificadoPor WHERE NumeroAula = @NumeroAula";
             var command = CreateCommand(query);
             
-            command.Parameters.AddWithValue("@Horario", aula.Horario);
-            command.Parameters.AddWithValue("@CodigoCurso", aula.CodigoCurso);
+            command.Parameters.AddWithValue("@NumeroAula", aula.NumeroAula);
+            command.Parameters.AddWithValue("@NombreAula", aula.NombreAula);
             command.Parameters.AddWithValue("@FechaModificacion", aula.FechaModificacion);
             command.Parameters.AddWithValue("@ModificadoPor", aula.ModificadoPor);
-            command.Parameters.AddWithValue("@NumeroAula", aula.NumeroAula);
 
             command.ExecuteNonQuery();
         }
@@ -39,13 +38,12 @@ namespace SistemaUniversidad.BackEnd.API.Repository
         public void Insertar(Aula aula)
         {
             
-            var query = "SP_Aula_Insertar";
+            var query = "SP_Aulas_Insertar";
             var command = CreateCommand(query);
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("@NumeroAula", aula.NumeroAula);
-            command.Parameters.AddWithValue("@Horario", aula.Horario);
-            command.Parameters.AddWithValue("@CodigoCurso", aula.CodigoCurso);
+            command.Parameters.AddWithValue("@NombreAula", aula.NombreAula);
             command.Parameters.AddWithValue("@CreadoPor", aula.CreadoPor);
 
             command.ExecuteNonQuery();
@@ -55,7 +53,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
         public Aula SeleccionarPorId(String NumeroAula)
         {
-            var query = "SELECT * FROM vw_Aula_SeleccionarActivos WHERE NumeroAula = @NumeroAula";
+            var query = "SELECT * FROM vw_Aulas_SeleccionarActivos WHERE NumeroAula = @NumeroAula";
             var command = CreateCommand(query);
 
             command.Parameters.AddWithValue("@NumeroAula", NumeroAula);
@@ -67,9 +65,8 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             while (reader.Read())
             {
                 AulaSeleccionada.NumeroAula = Convert.ToString(reader["NumeroAula"]);
-                AulaSeleccionada.Horario = Convert.ToString(reader["Horario"]);
+                AulaSeleccionada.NombreAula = Convert.ToString(reader["NombreAula"]);
                 AulaSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
-                AulaSeleccionada.CodigoCurso = Convert.ToString(reader["CodigoCurso"]);
                 AulaSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
                 AulaSeleccionada.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]); 
                 AulaSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
