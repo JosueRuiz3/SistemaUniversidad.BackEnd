@@ -7,6 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SistemaUniversidad.BackEnd.API.Services;
+using SistemaUniversidad.BackEnd.API.Services.Interfaces;
+using SistemaUniversidad.BackEnd.API.UnitOfWork.Interfaces;
+using SistemaUniversidad.BackEnd.API.UnitOfWork.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +36,9 @@ namespace SistemaUniversidad.BackEnd.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SistemaUniversidad.BackEnd.API", Version = "v1" });
             });
+
+            services.AddTransient<IUnitOfWork, UnitOfWorkSqlServer>();
+            services.AddTransient<IAulasService, AulaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

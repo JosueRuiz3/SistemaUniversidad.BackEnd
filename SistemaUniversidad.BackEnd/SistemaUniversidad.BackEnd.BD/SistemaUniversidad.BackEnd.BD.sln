@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SistemaUniversidad.BackEnd.BD", "SistemaUniversidad.BackEnd.BD\SistemaUniversidad.BackEnd.BD.sqlproj", "{41390F32-4A84-4235-BDBD-3969E35EA50C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaUniversidad.BackEnd.API", "SistemaUniversidad.BackEnd.API\SistemaUniversidad.BackEnd.API.csproj", "{DC1450A9-304A-4523-9B58-CEE75EE9D5E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaUniversidad.BackEnd.API", "SistemaUniversidad.BackEnd.API\SistemaUniversidad.BackEnd.API.csproj", "{1CE5497B-441E-4CB7-94E4-D947C12E2153}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,10 @@ Global
 		{41390F32-4A84-4235-BDBD-3969E35EA50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41390F32-4A84-4235-BDBD-3969E35EA50C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{41390F32-4A84-4235-BDBD-3969E35EA50C}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{DC1450A9-304A-4523-9B58-CEE75EE9D5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC1450A9-304A-4523-9B58-CEE75EE9D5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC1450A9-304A-4523-9B58-CEE75EE9D5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC1450A9-304A-4523-9B58-CEE75EE9D5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE5497B-441E-4CB7-94E4-D947C12E2153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE5497B-441E-4CB7-94E4-D947C12E2153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE5497B-441E-4CB7-94E4-D947C12E2153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE5497B-441E-4CB7-94E4-D947C12E2153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
