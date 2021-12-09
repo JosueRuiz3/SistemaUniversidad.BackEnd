@@ -9,7 +9,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
 
 		public Aula()
 		{
-			CursosEnAulas = new HashSet<CursosEnAula>();
+			CursosEnAulas = new HashSet<CursosEnAula>(); 
 		}
 		public string NumeroAula { get; set; }
 
