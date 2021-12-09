@@ -6,7 +6,7 @@
 	FechaModificacion DATETIME,
 	CreadoPor VARCHAR(60),
 	ModificadoPor VARCHAR(60),
-	CONSTRAINT PK_Aulas PRIMARY KEY(NumeroAula),
+	CONSTRAINT PK_Aulas PRIMARY KEY(NumeroAula), 
 )
 GO
 --Documentación de tabla
