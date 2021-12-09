@@ -20,14 +20,12 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             _context = context;
         }
 
-        // GET: api/Sedes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Sede>>> GetSedes()
         {
             return await _context.Sedes.ToListAsync();
         }
 
-        // GET: api/Sedes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Sede>> GetSede(int id)
         {
@@ -41,8 +39,6 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             return sede;
         }
 
-        // PUT: api/Sedes/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSede(int id, Sede sede)
         {
@@ -71,9 +67,6 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             return NoContent();
         }
-
-        // POST: api/Sedes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Sede>> PostSede(Sede sede)
         {
