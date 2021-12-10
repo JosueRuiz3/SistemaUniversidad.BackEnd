@@ -7,9 +7,20 @@ namespace SistemaUniversidad.BackEnd.API.Services
 {
     public class SedeService : ISedeService
     {
+        private IUnitOfWork BD;
+        public SedeService(IUnitOfWork unitOfWork)
+        {
+            BD = unitOfWork;
+        }
+
         public void Actualizar(Sede model)
         {
-            throw new System.NotImplementedException();
+            using (var bd = BD.Conectar())
+            {
+                bd.Repositories.sedesRepository.Actualizar(model);
+
+                bd.SaveChanges();
+            }
         }
 
         public void Eliminar(int id)
@@ -19,12 +30,25 @@ namespace SistemaUniversidad.BackEnd.API.Services
 
         public void Insertar(Sede model)
         {
-            throw new System.NotImplementedException();
+            using (var bd = BD.Conectar())
+            {
+                bd.Repositories.sedesRepository.Insertar(model);
+
+                bd.SaveChanges();
+            }
         }
 
-        public Sede SeleccionarPorId(string id)
+        public Sede SeleccionarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            Sede SeleSeleccionada = new Sede();
+
+            using (var bd = BD.Conectar())
+            {
+                SeleSeleccionada = bd.Repositories.sedesRepository.SeleccionarPorId(id);
+
+                bd.SaveChanges();
+            }
+            return SeleSeleccionada;
         }
 
         public IEnumerable<Sede> SeleccionarTodos()

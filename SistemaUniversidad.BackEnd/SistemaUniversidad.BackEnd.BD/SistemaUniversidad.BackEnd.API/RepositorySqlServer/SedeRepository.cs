@@ -58,7 +58,8 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
             command.ExecuteNonQuery();
         }
 
-        public Sede SeleccionarPorId(string CodigoSede)
+
+        public Sede SeleccionarPorId(int CodigoSede)
         {
             var query = "SELECT * FROM vw_Sedes_SeleccionarActivos WHERE CodigoSede = @CodigoSede";
             var command = CreateCommand(query);
@@ -85,11 +86,6 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
             reader.Close();
 
             return SedeSeleccionada;
-        }
-
-        public Sede SeleccionarPorId(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<Sede> SeleccionarTodos()
