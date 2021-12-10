@@ -19,13 +19,16 @@ namespace SistemaUniversidad.BackEnd.API.Repository
         }
         public void Actualizar(Aula aula)
         {
-            var query = "UPDATE Aulas SET NumeroAula = @NumeroAula, NombreAula = @NombreAula, FechaModificacion = @FechaModificacion, ModificadoPor = @ModificadoPor WHERE NumeroAula = @NumeroAula";
+            //var query = "UPDATE Aulas SET NumeroAula = @NumeroAula, NombreAula = @NombreAula, FechaModificacion = @FechaModificacion WHERE NumeroAula = @NumeroAula";
+            //var command = CreateCommand(query);
+
+            var query = "SP_Aula_Actualizar";
             var command = CreateCommand(query);
-            
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
             command.Parameters.AddWithValue("@NumeroAula", aula.NumeroAula);
             command.Parameters.AddWithValue("@NombreAula", aula.NombreAula);
             command.Parameters.AddWithValue("@FechaModificacion", aula.FechaModificacion);
-            command.Parameters.AddWithValue("@ModificadoPor", aula.ModificadoPor);
 
             command.ExecuteNonQuery();
         }
@@ -48,7 +51,6 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
             command.ExecuteNonQuery();
 
-            //throw new NotImplementedException();
         }
 
         public Aula SeleccionarPorId(String NumeroAula)

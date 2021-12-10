@@ -59,7 +59,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             AulaPorInsertar.NumeroAula = AulaDTO.NumeroAula;
             AulaPorInsertar.NombreAula = AulaDTO.NombreAula;
-            AulaPorInsertar.CreadoPor = AulaDTO.CreadoPor;
+            AulaPorInsertar.CreadoPor = "Ruiz";
 
             Aulas.Insertar(AulaPorInsertar);
 
@@ -100,8 +100,22 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
         // DELETE api/<AulasController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(string id)
         {
+            Aula Aulaseleccionada = new();
+
+            Aulaseleccionada = Aulas.SeleccionarPorId(id);
+
+            if (Aulaseleccionada.NumeroAula is null)
+            {
+                return NotFound("Aula no encontrada");
+            }
+
+            Aulaseleccionada.Activo = false; //Esto realiza el eliminado lógico
+
+            Aulas.Actualizar(Aulaseleccionada);
+
+            return Ok("Registro eliminado");
         }
     }
 }

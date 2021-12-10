@@ -7,5 +7,6 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.Interfaces
     {
         IAulasRepository AulaRepository { get; }
         
+        ISedesRepository sedesRepository { get; }
     }
 }

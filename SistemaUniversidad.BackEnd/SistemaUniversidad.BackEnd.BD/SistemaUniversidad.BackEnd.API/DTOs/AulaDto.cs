@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemaUniversidad.BackEnd.API.Dtos
 {
@@ -17,5 +19,6 @@ namespace SistemaUniversidad.BackEnd.API.Dtos
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string CreadoPor { get; set; }
+
     }
 }
