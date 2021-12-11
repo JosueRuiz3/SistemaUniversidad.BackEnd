@@ -17,7 +17,7 @@ namespace SistemaUniversidad.BackEnd.API.Services
         {
             using (var bd = BD.Conectar())
             {
-                bd.Repositories.sedesRepository.Actualizar(model);
+                bd.Repositories.SedeRepository.Actualizar(model);
 
                 bd.SaveChanges();
             }
@@ -32,19 +32,19 @@ namespace SistemaUniversidad.BackEnd.API.Services
         {
             using (var bd = BD.Conectar())
             {
-                bd.Repositories.sedesRepository.Insertar(model);
+                bd.Repositories.SedeRepository.Insertar(model);
 
                 bd.SaveChanges();
             }
         }
 
-        public Sede SeleccionarPorId(int id)
+        public Sede SeleccionarPorId(string id)
         {
             Sede SeleSeleccionada = new Sede();
 
             using (var bd = BD.Conectar())
             {
-                SeleSeleccionada = bd.Repositories.sedesRepository.SeleccionarPorId(id);
+                SeleSeleccionada = bd.Repositories.SedeRepository.SeleccionarPorId(id);
 
                 bd.SaveChanges();
             }

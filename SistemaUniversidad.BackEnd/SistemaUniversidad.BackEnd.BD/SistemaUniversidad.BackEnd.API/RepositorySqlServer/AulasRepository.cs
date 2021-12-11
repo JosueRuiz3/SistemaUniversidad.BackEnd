@@ -19,8 +19,6 @@ namespace SistemaUniversidad.BackEnd.API.Repository
         }
         public void Actualizar(Aula aula)
         {
-            //var query = "UPDATE Aulas SET NumeroAula = @NumeroAula, NombreAula = @NombreAula, FechaModificacion = @FechaModificacion WHERE NumeroAula = @NumeroAula";
-            //var command = CreateCommand(query);
 
             var query = "SP_Aula_Actualizar";
             var command = CreateCommand(query);

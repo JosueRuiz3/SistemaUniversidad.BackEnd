@@ -6,7 +6,7 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.Interfaces
     public interface IUnitOfWorkRepository
     {
         IAulasRepository AulaRepository { get; }
-        
-        ISedesRepository sedesRepository { get; }
+
+        ISedesRepository SedeRepository { get; }
     }
 }

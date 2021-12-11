@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SistemaUniversidad.BackEnd.API.DTOs;
 using SistemaUniversidad.BackEnd.API.Models;
-using SistemaUniversidad.BackEnd.API.Services;
+using SistemaUniversidad.BackEnd.API.Dtos;
 using SistemaUniversidad.BackEnd.API.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,10 +13,10 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
     [ApiController]
     public class SedesController : ControllerBase
     {
-        private readonly ISedeService Sede;
+        private readonly ISedeService Sedes;
         public SedesController(ISedeService SedesService)
         {
-            Sede = SedesService;
+            Sedes = SedesService;
         }
 
         // GET: api/<SedesController>
@@ -35,15 +32,21 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
         {
             Sede Sedeseleccionada = new();
 
-            Sedeseleccionada = Sede.SeleccionarPorId(id);
+            Sedeseleccionada = Sedes.SeleccionarPorId(id);
 
 
-            if (Sedeseleccionada.CodigoSede is 0)
+            if (Sedeseleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");
             }
 
             SedeDto sedeDTO = new();
+
+            sedeDTO.CodigoSede = Sedeseleccionada.CodigoSede;
+            sedeDTO.NombreSede = Sedeseleccionada.NombreSede;
+            sedeDTO.Telefono = Sedeseleccionada.Telefono;
+            sedeDTO.CorreoElectronico = Sedeseleccionada.CorreoElectronico;
+            sedeDTO.Direccion = Sedeseleccionada.Direccion;
 
             return Ok(sedeDTO);
         }
@@ -66,7 +69,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             SedePorInsertar.Direccion = sedeDTO.Direccion;
             SedePorInsertar.CreadoPor = "Ruiz";
 
-            Sede.Insertar(SedePorInsertar);
+            Sedes.Insertar(SedePorInsertar);
 
             return Ok();
         }
@@ -82,9 +85,9 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             Sede SedeSeleccionada = new();
 
-            SedeSeleccionada = Sede.SeleccionarPorId(id);
+            SedeSeleccionada = Sedes.SeleccionarPorId(id);
 
-            if (SedeSeleccionada.CodigoSede is 0)
+            if (SedeSeleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");
             }
@@ -100,6 +103,8 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             SedePorActualizar.FechaModificacion = System.DateTime.Now;
             SedePorActualizar.CreadoPor = "Ruiz";
 
+            Sedes.Actualizar(SedePorActualizar);
+
             return Ok();
         }
 
@@ -107,18 +112,18 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            Sede SedeSeleccionada = new Sede();
+            Sede SedeSeleccionada = new();
 
-            SedeSeleccionada = Sede.SeleccionarPorId(id);
+            SedeSeleccionada = Sedes.SeleccionarPorId(id);
 
-            if (SedeSeleccionada.CodigoSede is 0)
+            if (SedeSeleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");
             }
 
             SedeSeleccionada.Activo = false;
 
-            Sede.Actualizar(SedeSeleccionada);
+            Sedes.Actualizar(SedeSeleccionada);
 
             return Ok("Registro eliminado");
         }

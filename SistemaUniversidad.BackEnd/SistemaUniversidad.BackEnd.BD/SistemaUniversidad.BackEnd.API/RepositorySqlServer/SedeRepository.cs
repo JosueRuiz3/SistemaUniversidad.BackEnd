@@ -19,9 +19,6 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
 
         public void Actualizar(Sede sede)
         {
-            //var query = "UPDATE Sedes SET CodigoSede = @CodigoSede, NombreSede = @NombreSede, Telefono = @Telefono, CorreoElectronico = @CorreoElectronico, Direccion = @Direccion" +
-            //            "FechaModificacion = @FechaModificacion WHERE CodigoSede = @CodigoSede";
-            //var command = CreateCommand(query);
 
             var query = "SP_Sedes_Actualizar";
             var command = CreateCommand(query);
@@ -59,7 +56,7 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
         }
 
 
-        public Sede SeleccionarPorId(int CodigoSede)
+        public Sede SeleccionarPorId(string CodigoSede)
         {
             var query = "SELECT * FROM vw_Sedes_SeleccionarActivos WHERE CodigoSede = @CodigoSede";
             var command = CreateCommand(query);
@@ -72,7 +69,7 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
 
             while (reader.Read())
             {
-                SedeSeleccionada.CodigoSede = Convert.ToInt32(reader["CodigoSede"]);
+                SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
                 SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
                 SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
