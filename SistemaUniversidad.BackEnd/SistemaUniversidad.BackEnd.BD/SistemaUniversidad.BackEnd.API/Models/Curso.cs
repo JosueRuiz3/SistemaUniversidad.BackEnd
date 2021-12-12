@@ -14,26 +14,14 @@ namespace SistemaUniversidad.BackEnd.API.Models
             CursosEnAulas = new HashSet<CursosEnAula>();
             CursosEnMatriculas = new HashSet<CursosEnMatricula>();
         }
-
-
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
-        [MaxLength(8, ErrorMessage = "{0} tiene que tener máximo {1} caracteres")]
         public string CodigoCurso { get; set; }
-
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string NombreCurso { get; set; }
-
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public decimal? Precio { get; set; }
 
         public bool? Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
-
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string CreadoPor { get; set; }
-
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string ModificadoPor { get; set; }
 
         public virtual ICollection<CursosConProfesore> CursosConProfesores { get; set; }

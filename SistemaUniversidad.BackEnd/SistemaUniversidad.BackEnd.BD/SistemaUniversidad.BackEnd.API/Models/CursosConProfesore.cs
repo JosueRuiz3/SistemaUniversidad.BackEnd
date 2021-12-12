@@ -8,11 +8,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
 {
     public partial class CursosConProfesore
     {
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
-        [MaxLength(8, ErrorMessage = "{0} tiene que tener máximo {1} caracteres")]
         public string CodigoCurso { get; set; }
-
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string CedulaProfesor { get; set; }
         public int NumeroCiclo { get; set; }
         public bool? Activo { get; set; }
