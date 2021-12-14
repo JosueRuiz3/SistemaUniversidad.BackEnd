@@ -55,7 +55,6 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
             command.ExecuteNonQuery();
         }
 
-
         public Sede SeleccionarPorId(string CodigoSede)
         {
             var query = "SELECT * FROM vw_Sedes_SeleccionarActivos WHERE CodigoSede = @CodigoSede";

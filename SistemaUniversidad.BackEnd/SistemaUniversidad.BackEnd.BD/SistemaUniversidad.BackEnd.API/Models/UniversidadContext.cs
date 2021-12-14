@@ -26,7 +26,6 @@ namespace SistemaUniversidad.BackEnd.API.Models
         public virtual DbSet<CursosEnMatricula> CursosEnMatriculas { get; set; }
         public virtual DbSet<Estudiante> Estudiantes { get; set; }
         public virtual DbSet<Matricula> Matriculas { get; set; }
-        public virtual DbSet<Producto> Productos { get; set; }
         public virtual DbSet<Profesore> Profesores { get; set; }
         public virtual DbSet<Sede> Sedes { get; set; }
 
@@ -552,24 +551,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
                     .HasConstraintName("FK_Matriculas_NumeroCiclos");
             });
 
-            modelBuilder.Entity<Producto>(entity =>
-            {
-                entity.HasKey(e => e.IdProducto);
-
-                entity.ToTable("Producto");
-
-                entity.Property(e => e.IdProducto).HasColumnName("Id_Producto");
-
-                entity.Property(e => e.Categoria)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Nombre)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
+            
 
             modelBuilder.Entity<Profesore>(entity =>
             {
