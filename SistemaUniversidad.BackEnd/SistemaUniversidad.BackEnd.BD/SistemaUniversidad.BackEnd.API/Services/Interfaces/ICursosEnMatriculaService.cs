@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaUniversidad.BackEnd.API.Services.Interfaces
 {
-   public interface ICursosEnMatricula
+   public interface ICursosEnMatriculaService
     {
         List<CursosEnMatricula> SeleccionarTodos();
         CursosEnMatricula SeleccionarPorId(string id);
