@@ -32,6 +32,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
                 AulaDTO.NumeroAula = Aulaseleccionada.NumeroAula;
                 AulaDTO.NombreAula = Aulaseleccionada.NombreAula;
+                AulaDTO.Activo = Aulaseleccionada.Activo;
 
                 ListaTodasLasAulasDto.Add(AulaDTO);
             }
@@ -53,11 +54,10 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             }
 
             AulaDto AulaDTO = new();
-            Aula aula = new();
-
+            
             AulaDTO.NumeroAula = Aulaseleccionada.NumeroAula;
             AulaDTO.NombreAula = Aulaseleccionada.NombreAula;
-            aula.Activo = Aulaseleccionada.Activo;
+            AulaDTO.Activo = Aulaseleccionada.Activo;
 
             return Ok(AulaDTO);
         }
@@ -105,6 +105,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             AulaPorActualizar.NumeroAula = AulaDTO.NumeroAula;
             AulaPorActualizar.NombreAula = AulaDTO.NombreAula;
+            AulaPorActualizar.Activo = AulaDTO.Activo;
 
             AulaPorActualizar.FechaModificacion = System.DateTime.Now;
             AulaPorActualizar.ModificadoPor = "Ruiz";
