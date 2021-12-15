@@ -67,8 +67,8 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             SedePorInsertar.Telefono = sedeDTO.Telefono;
             SedePorInsertar.CorreoElectronico = sedeDTO.CorreoElectronico;
             SedePorInsertar.Direccion = sedeDTO.Direccion;
-            SedePorInsertar.CreadoPor = "Ruiz";
 
+            SedePorInsertar.CreadoPor = "Ruiz";
             Sedes.Insertar(SedePorInsertar);
 
             return Ok();
