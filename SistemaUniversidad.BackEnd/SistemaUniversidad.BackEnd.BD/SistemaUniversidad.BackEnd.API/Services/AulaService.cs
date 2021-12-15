@@ -22,7 +22,7 @@ namespace SistemaUniversidad.BackEnd.API.Services
             }
         }
 
-        public void Eliminar(int id)
+        public void Eliminar(string id)
         {
             using (var bd = BD.Conectar())
             {

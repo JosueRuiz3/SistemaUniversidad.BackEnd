@@ -21,14 +21,32 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
         // GET: api/<SedesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<SedeDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<Sede> ListaTodasLasSedes = Sedes.SeleccionarTodos();
+
+            List<SedeDto> ListaTodasLasSedesDTO = new();
+
+            foreach (var Sedeseleccionada in ListaTodasLasSedes)
+            {
+                SedeDto sedeDTO = new();
+
+                sedeDTO.CodigoSede = Sedeseleccionada.CodigoSede;
+                sedeDTO.NombreSede = Sedeseleccionada.NombreSede;
+                sedeDTO.Telefono = Sedeseleccionada.Telefono;
+                sedeDTO.CorreoElectronico = Sedeseleccionada.CorreoElectronico;
+                sedeDTO.Direccion = Sedeseleccionada.Direccion;
+                sedeDTO.Activo = Sedeseleccionada.Activo;
+
+                ListaTodasLasSedesDTO.Add(sedeDTO);
+            }
+
+            return ListaTodasLasSedesDTO;
         }
 
         // GET api/<SedesController>/5
         [HttpGet("{id}")]
-        public IActionResult Get(string id)
+        public IActionResult Get(int id)
         {
             Sede Sedeseleccionada = new();
 
@@ -47,6 +65,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             sedeDTO.Telefono = Sedeseleccionada.Telefono;
             sedeDTO.CorreoElectronico = Sedeseleccionada.CorreoElectronico;
             sedeDTO.Direccion = Sedeseleccionada.Direccion;
+            sedeDTO.Activo = Sedeseleccionada.Activo;
 
             return Ok(sedeDTO);
         }
@@ -69,6 +88,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             SedePorInsertar.Direccion = sedeDTO.Direccion;
 
             SedePorInsertar.CreadoPor = "Ruiz";
+
             Sedes.Insertar(SedePorInsertar);
 
             return Ok();
@@ -76,7 +96,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
         // PUT api/<SedesController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] SedeDto sedeDTO)
+        public IActionResult Put(int id, [FromBody] SedeDto sedeDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -99,6 +119,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             SedePorActualizar.Telefono = sedeDTO.Telefono;
             SedePorActualizar.CorreoElectronico = sedeDTO.CorreoElectronico;
             SedePorActualizar.Direccion = sedeDTO.Direccion;
+            SedePorActualizar.Activo = sedeDTO.Activo;
 
             SedePorActualizar.FechaModificacion = System.DateTime.Now;
             SedePorActualizar.CreadoPor = "Ruiz";
@@ -110,7 +131,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
         // DELETE api/<SedesController>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             Sede SedeSeleccionada = new();
 

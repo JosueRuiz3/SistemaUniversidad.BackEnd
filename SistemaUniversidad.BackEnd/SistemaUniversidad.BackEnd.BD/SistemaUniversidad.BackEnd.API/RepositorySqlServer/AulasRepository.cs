@@ -32,7 +32,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             command.ExecuteNonQuery();
         }
 
-        public void Eliminar(int id)
+        public void Eliminar(string id)
         {
             throw new NotImplementedException();
         }
@@ -80,7 +80,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             return AulaSeleccionada;
         }
 
-        public IEnumerable<Aula> SeleccionarTodos()
+        public List<Aula> SeleccionarTodos()
         {
 
             var query = "SELECT * FROM vw_Aula_SeleccionarActivos";

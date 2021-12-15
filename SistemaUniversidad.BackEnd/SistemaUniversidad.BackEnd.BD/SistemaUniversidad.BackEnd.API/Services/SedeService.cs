@@ -38,7 +38,7 @@ namespace SistemaUniversidad.BackEnd.API.Services
             }
         }
 
-        public Sede SeleccionarPorId(string id)
+        public Sede SeleccionarPorId(int id)
         {
             Sede SeleSeleccionada = new Sede();
 
@@ -51,9 +51,19 @@ namespace SistemaUniversidad.BackEnd.API.Services
             return SeleSeleccionada;
         }
 
-        public IEnumerable<Sede> SeleccionarTodos()
+        public List<Sede> SeleccionarTodos()
         {
-            throw new System.NotImplementedException();
+            List<Sede> ListaTodasLasSedes;
+
+            using (var bd = BD.Conectar())
+            {
+                ListaTodasLasSedes = bd.Repositories.SedeRepository.SeleccionarTodos();
+
+                bd.SaveChanges();
+            }
+
+            return ListaTodasLasSedes;
+
         }
     }
 }

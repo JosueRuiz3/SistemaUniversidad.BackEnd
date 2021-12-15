@@ -1,5 +1,6 @@
 ﻿using SistemaUniversidad.BackEnd.API.Models;
 using SistemaUniversidad.BackEnd.API.Repository.Interfaces;
+using SistemaUniversidad.BackEnd.API.RepositorySqlServer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
+namespace SistemaUniversidad.BackEnd.API.Repository
 {
     public class SedeRepository : ConexionBD, ISedesRepository
     {
@@ -29,7 +30,7 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
             command.Parameters.AddWithValue("@Telefono", sede.Telefono);
             command.Parameters.AddWithValue("@CorreoElectronico", sede.CorreoElectronico);
             command.Parameters.AddWithValue("@Direccion", sede.Direccion);
-            command.Parameters.AddWithValue("@FechaModificacion", sede.FechaModificacion);
+            command.Parameters.AddWithValue("@Activo", sede.Activo);
 
             command.ExecuteNonQuery();
         }
@@ -55,7 +56,7 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
             command.ExecuteNonQuery();
         }
 
-        public Sede SeleccionarPorId(string CodigoSede)
+        public Sede SeleccionarPorId(int CodigoSede)
         {
             var query = "SELECT * FROM vw_Sedes_SeleccionarActivos WHERE CodigoSede = @CodigoSede";
             var command = CreateCommand(query);
@@ -73,8 +74,9 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
                 SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
                 SedeSeleccionada.Direccion = Convert.ToString(reader["Direccion"]);
+                SedeSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
                 SedeSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
-                SedeSeleccionada.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
+                SedeSeleccionada.FechaModificacion = (DateTime)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
                 SedeSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
                 SedeSeleccionada.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
             }
@@ -84,9 +86,36 @@ namespace SistemaUniversidad.BackEnd.API.RepositorySqlServer
             return SedeSeleccionada;
         }
 
-        public IEnumerable<Sede> SeleccionarTodos()
+        public List<Sede> SeleccionarTodos()
         {
-            throw new NotImplementedException();
+            var query = "SELECT * FROM vw_Sedes_SeleccionarActivos";
+            var command = CreateCommand(query);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<Sede> ListaTodasLasSedes = new List<Sede>();
+
+            while (reader.Read())
+            {
+                Sede SedeSeleccionada = new();
+
+                SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
+                SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
+                SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
+                SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
+                SedeSeleccionada.Direccion = Convert.ToString(reader["Direccion"]);
+                SedeSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
+                SedeSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                SedeSeleccionada.FechaModificacion = (DateTime)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
+                SedeSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
+                SedeSeleccionada.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
+
+                ListaTodasLasSedes.Add(SedeSeleccionada);
+            }
+
+            reader.Close();
+
+            return ListaTodasLasSedes;
         }
     }
 }

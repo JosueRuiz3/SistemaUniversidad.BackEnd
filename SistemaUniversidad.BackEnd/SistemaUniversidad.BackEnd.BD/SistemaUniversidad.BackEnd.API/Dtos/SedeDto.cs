@@ -23,7 +23,6 @@ namespace SistemaUniversidad.BackEnd.API.Models
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string Direccion { get; set; }
-        public string CreadoPor { get; set; }
-
+        public bool Activo { get; set; }
     }
 }

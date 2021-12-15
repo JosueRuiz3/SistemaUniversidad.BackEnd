@@ -9,6 +9,6 @@ namespace SistemaUniversidad.BackEnd.API.Services.Interfaces
         Aula SeleccionarPorId(string id);
         void Insertar(Aula model);
         void Actualizar(Aula model);
-        void Eliminar(int id);
+        void Eliminar(string id);
     }
 }
