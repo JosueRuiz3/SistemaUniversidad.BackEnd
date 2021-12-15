@@ -83,7 +83,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
         public List<Aula> SeleccionarTodos()
         {
 
-            var query = "SELECT * FROM vw_Aula_SeleccionarActivos";
+            var query = "SELECT * FROM vw_Aulas_SeleccionarActivos";
             var command = CreateCommand(query);
 
             SqlDataReader reader = command.ExecuteReader();
