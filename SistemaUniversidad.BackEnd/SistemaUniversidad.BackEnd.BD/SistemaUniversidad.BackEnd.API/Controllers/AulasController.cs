@@ -17,11 +17,26 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
         {
             Aulas = AulasService;
         }
+
         // GET: api/<AulasController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<AulaDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<Aula> ListaTodasLasAulas = Aulas.SeleccionarTodos();
+
+            List<AulaDto> ListaTodasLasAulasDto = new();
+
+            foreach (var Aulaseleccionada in ListaTodasLasAulas)
+            {
+                AulaDto AulaDTO = new();
+
+                AulaDTO.NumeroAula = Aulaseleccionada.NumeroAula;
+                AulaDTO.NombreAula = Aulaseleccionada.NombreAula;
+
+                ListaTodasLasAulasDto.Add(AulaDTO);
+            }
+
+            return ListaTodasLasAulasDto;
         }
 
         // GET api/<AulasController>/5
@@ -41,7 +56,6 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             AulaDTO.NumeroAula = Aulaseleccionada.NumeroAula;
             AulaDTO.NombreAula = Aulaseleccionada.NombreAula;
-            AulaDTO.CreadoPor = Aulaseleccionada.CreadoPor;
 
             return Ok(AulaDTO);
         }
@@ -59,6 +73,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             AulaPorInsertar.NumeroAula = AulaDTO.NumeroAula;
             AulaPorInsertar.NombreAula = AulaDTO.NombreAula;
+
             AulaPorInsertar.CreadoPor = "Ruiz";
 
             Aulas.Insertar(AulaPorInsertar);
@@ -88,7 +103,6 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             AulaPorActualizar.NumeroAula = AulaDTO.NumeroAula;
             AulaPorActualizar.NombreAula = AulaDTO.NombreAula;
-            AulaPorActualizar.CreadoPor = AulaDTO.CreadoPor;
 
             AulaPorActualizar.FechaModificacion = System.DateTime.Now;
             AulaPorActualizar.ModificadoPor = "Ruiz";

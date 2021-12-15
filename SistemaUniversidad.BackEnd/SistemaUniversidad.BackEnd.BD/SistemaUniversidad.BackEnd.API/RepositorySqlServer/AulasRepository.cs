@@ -26,7 +26,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
             command.Parameters.AddWithValue("@NumeroAula", aula.NumeroAula);
             command.Parameters.AddWithValue("@NombreAula", aula.NombreAula);
-            command.Parameters.AddWithValue("@FechaModificacion", aula.FechaModificacion);
+            command.Parameters.AddWithValue("@ModificadoPor", aula.ModificadoPor);
 
             command.ExecuteNonQuery();
         }
@@ -81,7 +81,32 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
         public IEnumerable<Aula> SeleccionarTodos()
         {
-            throw new NotImplementedException();
+
+            var query = "SELECT * FROM vw_Aula_SeleccionarActivos";
+            var command = CreateCommand(query);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<Aula> ListaTodasLasAulas = new List<Aula>();
+
+            while (reader.Read())
+            {
+                Aula AulaSeleccionada = new();
+
+                AulaSeleccionada.NumeroAula = Convert.ToString(reader["NumeroAula"]);
+                AulaSeleccionada.NombreAula = Convert.ToString(reader["NombreAula"]);
+                AulaSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
+                AulaSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                AulaSeleccionada.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
+                AulaSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
+                AulaSeleccionada.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
+
+                ListaTodasLasAulas.Add(AulaSeleccionada);
+            }
+
+            reader.Close();
+
+            return ListaTodasLasAulas;
         }
     }
 }

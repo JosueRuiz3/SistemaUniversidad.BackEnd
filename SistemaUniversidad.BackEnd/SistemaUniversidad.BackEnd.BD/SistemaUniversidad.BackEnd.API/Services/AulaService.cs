@@ -24,7 +24,12 @@ namespace SistemaUniversidad.BackEnd.API.Services
 
         public void Eliminar(int id)
         {
-            throw new System.NotImplementedException();
+            using (var bd = BD.Conectar())
+            {
+                bd.Repositories.AulaRepository.Eliminar(id);
+
+                bd.SaveChanges();
+            }
         }
 
         public void Insertar(Aula model)
@@ -51,9 +56,19 @@ namespace SistemaUniversidad.BackEnd.API.Services
             return AulaSeleccionada;
         }
 
-        public IEnumerable<Aula> SeleccionarTodos()
+        public List<Aula> SeleccionarTodos()
         {
-            throw new System.NotImplementedException();
+            List<Aula> ListaTodasLasAulas;
+
+            using (var bd = BD.Conectar())
+            {
+                ListaTodasLasAulas = (List<Aula>)bd.Repositories.AulaRepository.SeleccionarTodos();
+
+                bd.SaveChanges();
+            }
+
+            return ListaTodasLasAulas;
+
         }
     }
 }
