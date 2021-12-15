@@ -14,5 +14,6 @@ namespace SistemaUniversidad.BackEnd.API.Services.Interfaces
         void Actualizar(Carrera model);
         void Eliminar(int id);
 
+
     }
 }
