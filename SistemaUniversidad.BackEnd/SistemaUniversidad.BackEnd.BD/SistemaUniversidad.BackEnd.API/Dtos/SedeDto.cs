@@ -26,7 +26,7 @@ namespace SistemaUniversidad.BackEnd.API.DTOs
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string Direccion { get; set; }
 
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
+        [Required(ErrorMessage = "{0} es campo obligatorio")]
         public string CreadoPor { get; set; }
     }
 }
