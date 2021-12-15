@@ -16,7 +16,5 @@ namespace SistemaUniversidad.BackEnd.API.Dtos
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string NombreAula { get; set; }
 
-        public string CreadoPor { get; set; }
-
     }
 }

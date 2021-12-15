@@ -53,9 +53,11 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             }
 
             AulaDto AulaDTO = new();
+            Aula aula = new();
 
             AulaDTO.NumeroAula = Aulaseleccionada.NumeroAula;
             AulaDTO.NombreAula = Aulaseleccionada.NombreAula;
+            aula.Activo = Aulaseleccionada.Activo;
 
             return Ok(AulaDTO);
         }

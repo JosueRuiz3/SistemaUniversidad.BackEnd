@@ -2,7 +2,6 @@
 CREATE PROCEDURE SP_Aulas_Actualizar
 	@NumeroAula VARCHAR(10),
 	@NombreAula VARCHAR(30),
-	@CreadoPor VARCHAR(50),
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN 
