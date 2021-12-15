@@ -20,13 +20,14 @@ namespace SistemaUniversidad.BackEnd.API.Repository
         public void Actualizar(Aula aula)
         {
 
-            var query = "SP_Aula_Actualizar";
+            var query = "SP_Aulas_Actualizar";
             var command = CreateCommand(query);
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("@NumeroAula", aula.NumeroAula);
             command.Parameters.AddWithValue("@NombreAula", aula.NombreAula);
             command.Parameters.AddWithValue("@ModificadoPor", aula.ModificadoPor);
+            command.Parameters.AddWithValue("@Activo", aula.Activo);
 
             command.ExecuteNonQuery();
         }
