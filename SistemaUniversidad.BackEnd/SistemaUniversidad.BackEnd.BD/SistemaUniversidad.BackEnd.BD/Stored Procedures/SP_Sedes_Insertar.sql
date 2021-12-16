@@ -1,6 +1,6 @@
 ﻿--PROCEDIMIENTO ALMACENADO INSERTAR SEDES
 CREATE PROCEDURE SP_Sedes_Insertar
-	@CodigoSede INT,
+	@CodigoSede  VARCHAR(10),
 	@NombreSede VARCHAR(30),
 	@Telefono VARCHAR(12),
 	@CorreoElectronico VARCHAR(50),

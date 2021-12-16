@@ -1,6 +1,6 @@
 ﻿--PROCEDIMIENTO ALMACENADO ELIMINAR SEDES
 CREATE PROCEDURE SP_Sedes_Eliminar
-	@CodigoSede INT 
+	@CodigoSede  VARCHAR(10) 
 	AS 
 	
 	UPDATE Sedes 

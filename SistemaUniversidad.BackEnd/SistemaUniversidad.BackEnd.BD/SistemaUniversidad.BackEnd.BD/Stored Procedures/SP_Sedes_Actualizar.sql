@@ -1,6 +1,6 @@
 ﻿--PROCEDIMIENTO ALMACENADO ACTUALIZAR SEDE
 CREATE PROCEDURE SP_Sedes_Actualizar
-	@CodigoSede INT,
+	@CodigoSede  VARCHAR(10),
 	@NombreSede VARCHAR(30),
 	@Telefono VARCHAR(12),
 	@CorreoElectronico VARCHAR(50),
