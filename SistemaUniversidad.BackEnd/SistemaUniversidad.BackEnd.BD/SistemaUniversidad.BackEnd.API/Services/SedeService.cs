@@ -23,7 +23,7 @@ namespace SistemaUniversidad.BackEnd.API.Services
             }
         }
 
-        public void Eliminar(int id)
+        public void Eliminar(string id)
         {
             using (var bd = BD.Conectar())
             {
@@ -43,7 +43,7 @@ namespace SistemaUniversidad.BackEnd.API.Services
             }
         }
 
-        public Sede SeleccionarPorId(int id)
+        public Sede SeleccionarPorId(string id)
         {
             Sede SeleSeleccionada = new Sede();
 

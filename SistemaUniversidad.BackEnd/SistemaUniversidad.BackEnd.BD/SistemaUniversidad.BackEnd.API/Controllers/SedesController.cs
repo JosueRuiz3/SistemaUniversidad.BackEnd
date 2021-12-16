@@ -46,14 +46,14 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
         // GET api/<SedesController>/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult Get(string id)
         {
             Sede Sedeseleccionada = new();
 
             Sedeseleccionada = Sedes.SeleccionarPorId(id);
 
 
-            if (Sedeseleccionada.CodigoSede is 0)
+            if (Sedeseleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");
             }
@@ -96,7 +96,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
         // PUT api/<SedesController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] SedeDto sedeDTO)
+        public IActionResult Put(string id, [FromBody] SedeDto sedeDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             SedeSeleccionada = Sedes.SeleccionarPorId(id);
 
-            if (SedeSeleccionada.CodigoSede is 0)
+            if (SedeSeleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");
             }
@@ -122,7 +122,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             SedePorActualizar.Activo = sedeDTO.Activo;
 
             SedePorActualizar.FechaModificacion = System.DateTime.Now;
-            SedePorActualizar.CreadoPor = "Ruiz";
+            SedePorActualizar.ModificadoPor = "Ruiz";
 
             Sedes.Actualizar(SedePorActualizar);
 
@@ -131,13 +131,13 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
         // DELETE api/<SedesController>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             Sede SedeSeleccionada = new();
 
             SedeSeleccionada = Sedes.SeleccionarPorId(id);
 
-            if (SedeSeleccionada.CodigoSede is 0)
+            if (SedeSeleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");
             }

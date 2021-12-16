@@ -128,7 +128,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
                 return NotFound("Aula no encontrada");
             }
 
-            Aulaseleccionada.Activo = false; //Esto realiza el eliminado lógico
+            Aulaseleccionada.Activo = false;
 
             Aulas.Actualizar(Aulaseleccionada);
 

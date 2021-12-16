@@ -35,7 +35,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             command.ExecuteNonQuery();
         }
 
-        public void Eliminar(int id)
+        public void Eliminar(string id)
         {
             throw new NotImplementedException();
         }
@@ -56,7 +56,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             command.ExecuteNonQuery();
         }
 
-        public Sede SeleccionarPorId(int CodigoSede)
+        public Sede SeleccionarPorId(string CodigoSede)
         {
             var query = "SELECT * FROM vw_Sedes_SeleccionarActivos WHERE CodigoSede = @CodigoSede";
             var command = CreateCommand(query);
@@ -69,7 +69,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
             while (reader.Read())
             {
-                SedeSeleccionada.CodigoSede = Convert.ToInt32(reader["CodigoSede"]);
+                SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
                 SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
                 SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
@@ -99,7 +99,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             {
                 Sede SedeSeleccionada = new();
 
-                SedeSeleccionada.CodigoSede = Convert.ToInt32(reader["CodigoSede"]);
+                SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
                 SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
                 SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
