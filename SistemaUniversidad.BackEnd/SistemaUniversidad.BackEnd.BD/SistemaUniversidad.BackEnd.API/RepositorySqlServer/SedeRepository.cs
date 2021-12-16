@@ -72,7 +72,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             {
                 SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
                 SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
-                SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
+                SedeSeleccionada.Telefono = Convert.ToString(reader["v"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
                 SedeSeleccionada.Direccion = Convert.ToString(reader["Direccion"]);
                 SedeSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
