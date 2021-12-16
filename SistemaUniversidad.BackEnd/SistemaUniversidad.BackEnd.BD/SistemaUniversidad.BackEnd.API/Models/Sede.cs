@@ -8,7 +8,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
 {
     public class Sede
     {
-        public string CodigoSede { get; set; }
+        public int CodigoSede { get; set; }
         public string NombreSede { get; set; }
         public string Telefono { get; set; }
         public string CorreoElectronico { get; set; }

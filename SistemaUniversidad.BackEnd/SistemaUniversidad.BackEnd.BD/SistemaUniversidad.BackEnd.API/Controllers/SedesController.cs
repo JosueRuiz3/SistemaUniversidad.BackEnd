@@ -53,7 +53,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             Sedeseleccionada = Sedes.SeleccionarPorId(id);
 
 
-            if (Sedeseleccionada.CodigoSede is null)
+            if (Sedeseleccionada.CodigoSede is 0)
             {
                 return NotFound("Sede no encontrada");
             }
@@ -107,7 +107,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             SedeSeleccionada = Sedes.SeleccionarPorId(id);
 
-            if (SedeSeleccionada.CodigoSede is null)
+            if (SedeSeleccionada.CodigoSede is 0)
             {
                 return NotFound("Sede no encontrada");
             }
@@ -137,7 +137,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             SedeSeleccionada = Sedes.SeleccionarPorId(id);
 
-            if (SedeSeleccionada.CodigoSede is null)
+            if (SedeSeleccionada.CodigoSede is 0)
             {
                 return NotFound("Sede no encontrada");
             }

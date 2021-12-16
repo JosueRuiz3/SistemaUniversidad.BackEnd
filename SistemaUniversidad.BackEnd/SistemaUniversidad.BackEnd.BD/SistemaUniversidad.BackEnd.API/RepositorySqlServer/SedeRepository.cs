@@ -69,7 +69,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
             while (reader.Read())
             {
-                SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
+                SedeSeleccionada.CodigoSede = Convert.ToInt32(reader["CodigoSede"]);
                 SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
                 SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
@@ -99,7 +99,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             {
                 Sede SedeSeleccionada = new();
 
-                SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
+                SedeSeleccionada.CodigoSede = Convert.ToInt32(reader["CodigoSede"]);
                 SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
                 SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);

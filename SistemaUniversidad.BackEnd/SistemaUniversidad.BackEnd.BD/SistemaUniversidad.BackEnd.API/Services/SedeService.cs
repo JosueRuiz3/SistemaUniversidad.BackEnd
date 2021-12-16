@@ -25,7 +25,12 @@ namespace SistemaUniversidad.BackEnd.API.Services
 
         public void Eliminar(int id)
         {
-            throw new System.NotImplementedException();
+            using (var bd = BD.Conectar())
+            {
+                bd.Repositories.SedeRepository.Eliminar(id);
+
+                bd.SaveChanges();
+            }
         }
 
         public void Insertar(Sede model)
