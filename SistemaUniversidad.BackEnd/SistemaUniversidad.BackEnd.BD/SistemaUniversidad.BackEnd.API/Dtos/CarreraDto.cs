@@ -15,7 +15,6 @@ namespace SistemaUniversidad.BackEnd.API.Dtos
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string NombreCarrera { get; set; }
 
-        [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public bool? Acreditada { get; set; }
 
         public bool? Activo { get; set; }

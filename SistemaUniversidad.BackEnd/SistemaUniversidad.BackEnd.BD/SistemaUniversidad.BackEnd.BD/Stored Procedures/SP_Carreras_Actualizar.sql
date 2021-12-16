@@ -2,6 +2,7 @@
 CREATE PROCEDURE SP_Carreras_Actualizar
 	@CodigoCarrera VARCHAR(10),
 	@NombreCarrera VARCHAR(100),
+	@Acreditada BIT,
 	@Activo BIT,
 	@ModificadoPor VARCHAR(60)
 	AS
@@ -14,6 +15,7 @@ BEGIN
 	SET
 		CodigoCarrera = @CodigoCarrera,
 		NombreCarrera = @NombreCarrera,
+		Acreditada = @Acreditada,
 		Activo = @Activo,
 		FechaModificacion = @FechaModificacion,
 		ModificadoPor = @ModificadoPor

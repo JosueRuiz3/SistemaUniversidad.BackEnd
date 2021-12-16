@@ -8,11 +8,11 @@ namespace SistemaUniversidad.BackEnd.API.Services.Interfaces
 {
    public interface ICarreraService
     {
-        IEnumerable<Carrera> SeleccionarTodos();
+        List<Carrera> SeleccionarTodos();
         Carrera SeleccionarPorId(string id);
         void Insertar(Carrera model);
         void Actualizar(Carrera model);
-        void Eliminar(int id);
+        void Eliminar(string id);
 
 
     }

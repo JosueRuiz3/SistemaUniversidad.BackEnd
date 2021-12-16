@@ -2,6 +2,7 @@
 CREATE PROCEDURE SP_Aulas_Actualizar
 	@NumeroAula VARCHAR(10),
 	@NombreAula VARCHAR(30),
+	@Activo BIT,
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN 
@@ -13,6 +14,7 @@ BEGIN
 	SET
 		NumeroAula = @NumeroAula, 
 		NombreAula = @NombreAula,
+		Activo = @Activo,
 		FechaModificacion = @FechaModificacion,
 		ModificadoPor = @ModificadoPor
 	WHERE 
