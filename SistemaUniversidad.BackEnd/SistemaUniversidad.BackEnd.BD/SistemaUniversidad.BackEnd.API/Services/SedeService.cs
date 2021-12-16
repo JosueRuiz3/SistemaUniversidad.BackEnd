@@ -45,7 +45,7 @@ namespace SistemaUniversidad.BackEnd.API.Services
 
         public Sede SeleccionarPorId(string id)
         {
-            Sede SeleSeleccionada = new Sede();
+            Sede SeleSeleccionada = new();
 
             using (var bd = BD.Conectar())
             {

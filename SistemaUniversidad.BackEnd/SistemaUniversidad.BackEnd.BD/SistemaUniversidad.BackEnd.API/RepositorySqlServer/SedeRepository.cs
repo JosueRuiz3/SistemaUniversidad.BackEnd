@@ -30,6 +30,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             command.Parameters.AddWithValue("@Telefono", sede.Telefono);
             command.Parameters.AddWithValue("@CorreoElectronico", sede.CorreoElectronico);
             command.Parameters.AddWithValue("@Direccion", sede.Direccion);
+            command.Parameters.AddWithValue("@ModificadoPor", sede.ModificadoPor);
             command.Parameters.AddWithValue("@Activo", sede.Activo);
 
             command.ExecuteNonQuery();
