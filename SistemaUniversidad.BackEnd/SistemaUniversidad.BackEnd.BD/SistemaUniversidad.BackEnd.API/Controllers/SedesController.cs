@@ -13,32 +13,32 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
     [ApiController]
     public class SedesController : ControllerBase
     {
-        private readonly ISedeService Sedes;
+        private readonly ISedeService sedes;
         public SedesController(ISedeService SedesService)
         {
-            Sedes = SedesService;
+            sedes = SedesService;
         }
 
         // GET: api/<SedesController>
         [HttpGet]
         public List<SedeDto> Get()
         {
-            List<Sede> ListaTodasLasSedes = Sedes.SeleccionarTodos();
+            List<Sede> ListaTodasLasSedes = sedes.SeleccionarTodos();
 
             List<SedeDto> ListaTodasLasSedesDTO = new();
 
             foreach (var Sedeseleccionada in ListaTodasLasSedes)
             {
-                SedeDto sedeDTO = new();
+                SedeDto SedeDTo = new();
 
-                sedeDTO.CodigoSede = Sedeseleccionada.CodigoSede;
-                sedeDTO.NombreSede = Sedeseleccionada.NombreSede;
-                sedeDTO.Telefono = Sedeseleccionada.Telefono;
-                sedeDTO.CorreoElectronico = Sedeseleccionada.CorreoElectronico;
-                sedeDTO.Direccion = Sedeseleccionada.Direccion;
-                sedeDTO.Activo = Sedeseleccionada.Activo;
+                SedeDTo.CodigoSede = Sedeseleccionada.CodigoSede;
+                SedeDTo.NombreSede = Sedeseleccionada.NombreSede;
+                SedeDTo.Telefono = Sedeseleccionada.Telefono;
+                SedeDTo.CorreoElectronico = Sedeseleccionada.CorreoElectronico;
+                SedeDTo.Direccion = Sedeseleccionada.Direccion;
+                SedeDTo.Activo = Sedeseleccionada.Activo;
 
-                ListaTodasLasSedesDTO.Add(sedeDTO);
+                ListaTodasLasSedesDTO.Add(SedeDTo);
             }
 
             return ListaTodasLasSedesDTO;
@@ -50,7 +50,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
         {
             Sede Sedeseleccionada = new();
 
-            Sedeseleccionada = Sedes.SeleccionarPorId(id);
+            Sedeseleccionada = sedes.SeleccionarPorId(id);
 
             if (Sedeseleccionada.CodigoSede is null)
             {
@@ -88,7 +88,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             SedePorInsertar.CreadoPor = "Ruiz";
 
-            Sedes.Insertar(SedePorInsertar);
+            sedes.Insertar(SedePorInsertar);
 
             return Ok();
         }
@@ -104,7 +104,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             Sede SedeSeleccionada = new();
 
-            SedeSeleccionada = Sedes.SeleccionarPorId(id);
+            SedeSeleccionada = sedes.SeleccionarPorId(id);
 
             if (SedeSeleccionada.CodigoSede is null)
             {
@@ -123,7 +123,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
             SedePorActualizar.FechaModificacion = System.DateTime.Now;
             SedePorActualizar.ModificadoPor = "Ruiz";
 
-            Sedes.Actualizar(SedePorActualizar);
+            sedes.Actualizar(SedePorActualizar);
 
             return Ok();
         }
@@ -134,7 +134,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
         {
             Sede SedeSeleccionada = new();
 
-            SedeSeleccionada = Sedes.SeleccionarPorId(id);
+            SedeSeleccionada = sedes.SeleccionarPorId(id);
 
             if (SedeSeleccionada.CodigoSede is null)
             {
@@ -143,7 +143,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             SedeSeleccionada.Activo = false;
 
-            Sedes.Actualizar(SedeSeleccionada);
+            sedes.Actualizar(SedeSeleccionada);
 
             return Ok("Registro eliminado");
         }

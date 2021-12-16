@@ -45,29 +45,29 @@ namespace SistemaUniversidad.BackEnd.API.Services
 
         public Sede SeleccionarPorId(string id)
         {
-            Sede SeleSeleccionada = new();
+            Sede SedeSeleccionada = new();
 
             using (var bd = BD.Conectar())
             {
-                SeleSeleccionada = bd.Repositories.SedeRepository.SeleccionarPorId(id);
+                SedeSeleccionada = bd.Repositories.SedeRepository.SeleccionarPorId(id);
 
                 bd.SaveChanges();
             }
-            return SeleSeleccionada;
+            return SedeSeleccionada;
         }
 
         public List<Sede> SeleccionarTodos()
         {
-            List<Sede> ListaTodasLasSedes;
+            List<Sede> ListaTodasLasAulas;
 
             using (var bd = BD.Conectar())
             {
-                ListaTodasLasSedes = bd.Repositories.SedeRepository.SeleccionarTodos();
+                ListaTodasLasAulas = (List<Sede>)bd.Repositories.SedeRepository.SeleccionarTodos();
 
                 bd.SaveChanges();
             }
 
-            return ListaTodasLasSedes;
+            return ListaTodasLasAulas;
 
         }
     }
