@@ -1,6 +1,6 @@
 ﻿--PROCEDIMIENTO ALMACENADO INSERTAR CARRERAS
 CREATE PROCEDURE SP_Carreras_Insertar
-	@CodigoCarrera INT,
+	@CodigoCarrera VARCHAR(10),
 	@NombreCarrera VARCHAR(100),
 	@CreadoPor VARCHAR(50)
 	AS

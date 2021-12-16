@@ -1,5 +1,5 @@
 ﻿CREATE TABLE Carreras ( 
-	CodigoCarrera INT NOT NULL,  
+	CodigoCarrera VARCHAR(10) NOT NULL,  
 	NombreCarrera VARCHAR (100) NOT NULL,
 	Acreditada BIT DEFAULT 1 NOT NULL,
 	Activo BIT DEFAULT 1 NOT NULL,

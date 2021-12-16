@@ -1,3 +1,3 @@
 ﻿--VISTA EN DONDE SE MUESTRAN SOLO LOS REGISTROS LLAMADOS POR EL ID QUE SE ENCUENTRAN ACTIVOS EN LA TABLA "CARRERAS"
-CREATE VIEW vw_Carreras_SeleccionarUnRegistroPorId AS SELECT * FROM Carreras WHERE CodigoCarrera = 255
+CREATE VIEW vw_Carreras_SeleccionarUnRegistroPorId AS SELECT * FROM Carreras WHERE CodigoCarrera = '255'
 and activo =1

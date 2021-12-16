@@ -1,5 +1,5 @@
 ﻿CREATE TABLE Sedes(
-	CodigoSede  VARCHAR(10),
+	CodigoSede  VARCHAR(10) NOT NULL,
 	NombreSede VARCHAR(30) NOT NULL,
 	Telefono VARCHAR(12) NOT NULL,
 	CorreoElectronico VARCHAR(50) NOT NULL,

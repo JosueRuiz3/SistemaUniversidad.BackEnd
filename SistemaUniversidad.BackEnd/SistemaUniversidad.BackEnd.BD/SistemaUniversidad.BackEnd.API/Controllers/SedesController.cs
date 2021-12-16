@@ -52,7 +52,6 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             Sedeseleccionada = Sedes.SeleccionarPorId(id);
 
-
             if (Sedeseleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");

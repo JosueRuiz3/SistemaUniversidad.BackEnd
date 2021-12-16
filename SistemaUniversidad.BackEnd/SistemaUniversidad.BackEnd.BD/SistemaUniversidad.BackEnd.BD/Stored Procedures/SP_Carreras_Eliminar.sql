@@ -1,6 +1,6 @@
 ﻿--PROCEDIMIENTO ALMACENADO ELIMINAR CARRERAS
 CREATE PROCEDURE SP_Carreras_Eliminar
-	@CodigoCarrera INT 
+	@CodigoCarrera VARCHAR(10) 
 	AS
 	
 	UPDATE Carreras 

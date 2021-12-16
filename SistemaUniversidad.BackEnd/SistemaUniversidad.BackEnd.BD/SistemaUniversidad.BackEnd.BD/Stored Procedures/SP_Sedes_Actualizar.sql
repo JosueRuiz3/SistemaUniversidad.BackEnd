@@ -6,7 +6,6 @@ CREATE PROCEDURE SP_Sedes_Actualizar
 	@CorreoElectronico VARCHAR(50),
 	@Direccion VARCHAR(50),
 	@Activo BIT,
-	@CreadoPor VARCHAR(50),
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN 
@@ -23,7 +22,6 @@ BEGIN
 		Direccion = @Direccion,
 		Activo = @Activo,
 		FechaModificacion = @FechaModificacion,
-		CreadoPor  = @CreadoPor ,
 		ModificadoPor = @ModificadoPor
 	WHERE
 		CodigoSede = @CodigoSede
