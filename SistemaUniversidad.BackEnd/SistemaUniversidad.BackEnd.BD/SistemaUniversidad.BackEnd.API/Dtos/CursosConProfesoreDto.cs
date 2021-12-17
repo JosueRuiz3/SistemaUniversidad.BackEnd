@@ -15,7 +15,7 @@ namespace SistemaUniversidad.BackEnd.API.Dtos
         public string CedulaProfesor { get; set; }
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
-        public int NumeroCiclo { get; set; }
+        public string NumeroCiclo { get; set; }
 
         public bool? Activo { get; set; }
     }

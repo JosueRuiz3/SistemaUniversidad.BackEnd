@@ -277,11 +277,11 @@ namespace SistemaUniversidad.BackEnd.API.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CursosConProfesores_CodigoCurso");
 
-                //entity.HasOne(d => d.NumeroCicloNavigation)
-                //    .WithMany(p => p.CursosConProfesores)
-                //    .HasForeignKey(d => d.NumeroCiclo)
-                //    .OnDelete(DeleteBehavior.ClientSetNull)
-                //    .HasConstraintName("FK_CursosConProfesores_NumeroCiclo");
+                entity.HasOne(d => d.NumeroCicloNavigation)
+                    .WithMany(p => p.CursosConProfesores)
+                    .HasForeignKey(d => d.NumeroCiclo)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CursosConProfesores_NumeroCiclo");
             });
 
             modelBuilder.Entity<CursosEnAula>(entity =>

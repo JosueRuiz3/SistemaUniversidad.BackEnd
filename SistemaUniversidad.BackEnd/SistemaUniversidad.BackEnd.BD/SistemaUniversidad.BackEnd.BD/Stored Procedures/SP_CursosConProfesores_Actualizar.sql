@@ -3,7 +3,7 @@ CREATE PROCEDURE SP_CursosConProfesores_Actualizar
     @CodigoCurso VARCHAR(10),
 	@CedulaProfesor VARCHAR(15),
 	@NumeroCiclo INT,
-	@CreadoPor VARCHAR(50),
+	@Activo BIT,
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN
@@ -17,7 +17,7 @@ BEGIN
 		CedulaProfesor = @CedulaProfesor,
 		FechaModificacion = @FechaModificacion,
 		NumeroCiclo = @NumeroCiclo,
-		CreadoPor = @CreadoPor,
+		Activo = @Activo,
 		ModificadoPor = @ModificadoPor
 	WHERE 
 		CodigoCurso = @CodigoCurso

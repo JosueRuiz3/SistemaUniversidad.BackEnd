@@ -2,7 +2,7 @@
 CREATE PROCEDURE SP_CursosConProfesores_Insertar
 	@CodigoCurso VARCHAR(10),
 	@CedulaProfesor VARCHAR(15),
-	@NumeroCiclo INT,
+	@NumeroCiclo VARCHAR(15),
 	@CreadoPor VARCHAR(50)
 	AS
 BEGIN
