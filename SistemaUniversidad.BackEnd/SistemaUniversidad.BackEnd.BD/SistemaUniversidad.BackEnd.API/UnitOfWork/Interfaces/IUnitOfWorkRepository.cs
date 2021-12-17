@@ -12,5 +12,7 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.Interfaces
         ICarrerasRepository CarrerasRepository { get; }
 
         ICiclosLectivosRepository CicloLectivoRepository { get; }
+
+        ICursosRepository CursosRepository { get; }
     }
 }

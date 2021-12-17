@@ -29,15 +29,14 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             command.Parameters.AddWithValue("@CodigoCurso", curso.CodigoCurso);
             command.Parameters.AddWithValue("@NombreCurso", curso.NombreCurso);
             command.Parameters.AddWithValue("@Precio", curso.Precio);
+            command.Parameters.AddWithValue("@ModificadoPor", curso.ModificadoPor);
             command.Parameters.AddWithValue("@Activo", curso.Activo);
 
             command.ExecuteNonQuery();
 
         }
 
-     
-
-        public void Eliminar(int id)
+        public void Eliminar(string id)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +50,6 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             command.Parameters.AddWithValue("@CodigoCurso", curso.CodigoCurso);
             command.Parameters.AddWithValue("@NombreCurso", curso.NombreCurso);
             command.Parameters.AddWithValue("@Precio", curso.Precio);
-            command.Parameters.AddWithValue("@Activo", curso.Activo);
             command.Parameters.AddWithValue("@CreadoPor", curso.CreadoPor);
 
             command.ExecuteNonQuery();

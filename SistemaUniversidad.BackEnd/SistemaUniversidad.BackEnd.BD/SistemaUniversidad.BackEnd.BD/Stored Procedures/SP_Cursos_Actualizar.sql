@@ -3,7 +3,7 @@ CREATE PROCEDURE SP_Cursos_Actualizar
 	@CodigoCurso VARCHAR(10),
 	@NombreCurso VARCHAR(30),
 	@Precio DECIMAL(18,3),
-	@CreadoPor VARCHAR(50),
+	@Activo BIT,
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN
@@ -16,7 +16,7 @@ BEGIN
 		NombreCurso = @NombreCurso,
 		FechaModificacion = @FechaModificacion,
 		Precio  = @Precio,
-		CreadoPor = @CreadoPor,
+		Activo = @Activo,
 		ModificadoPor = @ModificadoPor
 	WHERE 
 		CodigoCurso = @CodigoCurso
