@@ -19,6 +19,6 @@ namespace SistemaUniversidad.BackEnd.API.Models
 
         public virtual Profesore CedulaProfesorNavigation { get; set; }
         public virtual Curso CodigoCursoNavigation { get; set; }
-        public virtual CicloLectivo NumeroCicloNavigation { get; set; }
+        //public virtual CicloLectivo NumeroCicloNavigation { get; set; }
     }
 }

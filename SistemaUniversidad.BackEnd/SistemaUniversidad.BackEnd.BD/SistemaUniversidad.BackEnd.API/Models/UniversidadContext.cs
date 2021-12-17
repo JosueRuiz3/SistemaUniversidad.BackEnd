@@ -277,11 +277,11 @@ namespace SistemaUniversidad.BackEnd.API.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CursosConProfesores_CodigoCurso");
 
-                entity.HasOne(d => d.NumeroCicloNavigation)
-                    .WithMany(p => p.CursosConProfesores)
-                    .HasForeignKey(d => d.NumeroCiclo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CursosConProfesores_NumeroCiclo");
+                //entity.HasOne(d => d.NumeroCicloNavigation)
+                //    .WithMany(p => p.CursosConProfesores)
+                //    .HasForeignKey(d => d.NumeroCiclo)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK_CursosConProfesores_NumeroCiclo");
             });
 
             modelBuilder.Entity<CursosEnAula>(entity =>
@@ -353,11 +353,11 @@ namespace SistemaUniversidad.BackEnd.API.Models
                 //    .OnDelete(DeleteBehavior.ClientSetNull)
                 //    .HasConstraintName("FK_CursosEnAulas_NumeroAulas");
 
-                entity.HasOne(d => d.NumeroCicloNavigation)
-                    .WithMany(p => p.CursosEnAulas)
-                    .HasForeignKey(d => d.NumeroCiclo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CurososEnAula_NumeroCiclos");
+                //entity.HasOne(d => d.NumeroCicloNavigation)
+                //    .WithMany(p => p.CursosEnAulas)
+                //    .HasForeignKey(d => d.NumeroCiclo)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK_CurososEnAula_NumeroCiclos");
             });
 
             modelBuilder.Entity<CursosEnMatricula>(entity =>
@@ -405,11 +405,11 @@ namespace SistemaUniversidad.BackEnd.API.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CursosEnMatriculas_CodigoCursos");
 
-                entity.HasOne(d => d.NumeroCicloNavigation)
-                    .WithMany(p => p.CursosEnMatriculas)
-                    .HasForeignKey(d => d.NumeroCiclo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CursosEnMatriculas_NumeroCiclos");
+                //entity.HasOne(d => d.NumeroCicloNavigation)
+                //    .WithMany(p => p.CursosEnMatriculas)
+                //    .HasForeignKey(d => d.NumeroCiclo)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK_CursosEnMatriculas_NumeroCiclos");
 
                 entity.HasOne(d => d.NumeroMatriculaNavigation)
                     .WithMany(p => p.CursosEnMatriculas)
@@ -544,11 +544,11 @@ namespace SistemaUniversidad.BackEnd.API.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Matriculas_CedulaEstudiantes");
 
-                entity.HasOne(d => d.NumeroCicloNavigation)
-                    .WithMany(p => p.Matriculas)
-                    .HasForeignKey(d => d.NumeroCiclo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Matriculas_NumeroCiclos");
+                //entity.HasOne(d => d.NumeroCicloNavigation)
+                //    .WithMany(p => p.Matriculas)
+                //    .HasForeignKey(d => d.NumeroCiclo)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK_Matriculas_NumeroCiclos");
             });
 
             

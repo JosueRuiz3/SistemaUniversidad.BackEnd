@@ -1,7 +1,7 @@
 ﻿CREATE TABLE CursosEnMatriculas(
 	NumeroMatricula INT,
 	CodigoCurso VARCHAR(10) NOT NULL,
-	NumeroCiclo INT NOT NULL,
+	NumeroCiclo VARCHAR(10) NOT NULL,
 	Activo BIT DEFAULT 1 NOT NULL,
 	FechaCreacion DATETIME DEFAULT GETDATE() NOT NULL,
 	FechaModificacion DATETIME,

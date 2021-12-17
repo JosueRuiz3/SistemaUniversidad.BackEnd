@@ -25,7 +25,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
         public string ModificadoPor { get; set; }
 
         public virtual Estudiante CedulaEstudianteNavigation { get; set; }
-        public virtual CicloLectivo NumeroCicloNavigation { get; set; }
+        //public virtual CicloLectivo NumeroCicloNavigation { get; set; }
         public virtual ICollection<CursosEnMatricula> CursosEnMatriculas { get; set; }
     }
 }

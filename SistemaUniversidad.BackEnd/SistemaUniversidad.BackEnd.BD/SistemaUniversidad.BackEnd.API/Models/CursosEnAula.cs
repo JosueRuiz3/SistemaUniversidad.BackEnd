@@ -20,7 +20,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
         public string ModificadoPor { get; set; }
 
         public virtual Curso CodigoCursoNavigation { get; set; }
-        public virtual Aula NumeroAulaNavigation { get; set; }
-        public virtual CicloLectivo NumeroCicloNavigation { get; set; }
+        //public virtual Aula NumeroAulaNavigation { get; set; }
+        //public virtual CicloLectivo NumeroCicloNavigation { get; set; }
     }
 }

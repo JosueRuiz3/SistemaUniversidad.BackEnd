@@ -1,5 +1,5 @@
 ﻿CREATE TABLE CicloLectivos(
-    NumeroCiclo INT NOT NULL,
+    NumeroCiclo VARCHAR(10) NOT NULL,
     NombreCiclo VARCHAR(30) NOT NULL,
     FechaInicio DATE NOT NULL,
     FechaFin DATE NOT NULL,

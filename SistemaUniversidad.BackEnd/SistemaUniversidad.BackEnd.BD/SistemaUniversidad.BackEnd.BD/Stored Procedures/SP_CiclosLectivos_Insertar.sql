@@ -1,6 +1,6 @@
 ﻿--PROCEDIMIENTO ALMACENADO INSERTAR CICLO LECTIVO
 CREATE PROCEDURE SP_CiclosLectivos_Insertar
-    @NumeroCiclo INT,
+    @NumeroCiclo VARCHAR(10),
     @NombreCiclo VARCHAR(30),
     @FechaInicio DATE,
     @FechaFin DATE,

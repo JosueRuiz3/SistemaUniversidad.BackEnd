@@ -1,11 +1,10 @@
 ﻿--PROCEDIMIENTO ALMACENADO ACTUALIZAR CICLO LECTIVO
 CREATE PROCEDURE SP_CiclosLectivos_Actualizar
-    @NumeroCiclo INT,
+    @NumeroCiclo VARCHAR(10),
     @NombreCiclo VARCHAR(30),
     @FechaInicio DATE,
     @FechaFin DATE,
     @Activo BIT,
-    @CreadoPor VARCHAR(60),
     @ModificadoPor VARCHAR(60)
     AS
 BEGIN
@@ -21,7 +20,6 @@ BEGIN
         FechaFin = @FechaFin,
         Activo = @Activo,
         FechaModificacion = @FechaModificacion,
-        CreadoPor  = @CreadoPor ,
         ModificadoPor = @ModificadoPor
     WHERE    
         NumeroCiclo = @NumeroCiclo

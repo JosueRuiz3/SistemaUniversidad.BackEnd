@@ -1,5 +1,4 @@
-﻿
-using SistemaUniversidad.BackEnd.API.Repository.Interfaces;
+﻿using SistemaUniversidad.BackEnd.API.Repository.Interfaces;
 using SistemaUniversidad.BackEnd.API.Repository;
 using SistemaUniversidad.BackEnd.API.UnitOfWork.Interfaces;
 
@@ -15,6 +14,8 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.SqlServer
         public ISedesRepository SedeRepository { get; }
 
         public ICarrerasRepository CarrerasRepository { get; }
+
+        public ICiclosLectivosRepository CicloLectivoRepository { get; }
         //Acá van todos los otros repositorios
         public UnitOfWorkSqlServerRepository(SqlConnection context, SqlTransaction transaction)
         {
@@ -23,6 +24,8 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.SqlServer
             SedeRepository = new SedeRepository(context, transaction);
 
             CarrerasRepository = new CarrerasRepository(context, transaction);
+
+            CicloLectivoRepository = new CicloLectivoRepository(context, transaction);
 
             //Acá van todos los otros repositorios
 

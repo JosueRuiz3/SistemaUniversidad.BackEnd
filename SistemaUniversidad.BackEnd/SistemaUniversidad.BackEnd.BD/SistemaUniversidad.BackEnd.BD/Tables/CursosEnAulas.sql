@@ -1,7 +1,7 @@
 ﻿CREATE TABLE CursosEnAulas( 
     CodigoCurso VARCHAR(10) NOT NULL,
     NumeroAula VARCHAR(10) NOT NULL,
-    NumeroCiclo INT NOT NULL,
+    NumeroCiclo VARCHAR(10) NOT NULL,
 	HorarioInicio VARCHAR (30),
 	HorarioFin VARCHAR (30),
 	DiaDeLaSemana VARCHAR (30),

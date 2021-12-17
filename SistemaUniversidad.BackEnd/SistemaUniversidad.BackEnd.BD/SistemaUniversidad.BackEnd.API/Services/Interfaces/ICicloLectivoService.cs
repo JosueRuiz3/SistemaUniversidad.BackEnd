@@ -1,8 +1,5 @@
-﻿using SistemaUniversidad.BackEnd.API.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using SistemaUniversidad.BackEnd.API.Models;
 
 namespace SistemaUniversidad.BackEnd.API.Services.Interfaces
 {
@@ -13,6 +10,5 @@ namespace SistemaUniversidad.BackEnd.API.Services.Interfaces
         void Insertar(CicloLectivo model);
         void Actualizar(CicloLectivo model);
         void Eliminar(string id);
-
     }
 }

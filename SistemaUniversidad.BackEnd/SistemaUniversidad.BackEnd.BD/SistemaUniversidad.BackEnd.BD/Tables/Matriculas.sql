@@ -1,6 +1,6 @@
 ﻿CREATE TABLE Matriculas( 
 	NumeroMatricula INT IDENTITY(1,1),
-    NumeroCiclo INT NOT NULL,
+    NumeroCiclo VARCHAR(10) NOT NULL,
 	CedulaEstudiante VARCHAR(15) NOT NULL,
 	MontoMatricula DECIMAL(18,3) NOT NULL,
 	MontoCursos DECIMAL(18,3), --TODO: Por cada curso que se matricule se debe actualizar este campo, para que sume el costo de cada curso
