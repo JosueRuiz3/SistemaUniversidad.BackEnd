@@ -9,69 +9,70 @@ using System.Collections.Generic;
 
 namespace SistemaUniversidad.BackEnd.API.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class SedesController : ControllerBase
     {
-        private readonly ISedeService sedes;
-        public SedesController(ISedeService SedesService)
+        private readonly ISedeService sede;
+        public SedesController(ISedeService SedeService)
         {
-            sedes = SedesService;
+            sede = SedeService;
         }
 
-        // GET: api/<SedesController>
+        // GET: api/<AulasController>
         [HttpGet]
         public List<SedeDto> Get()
         {
-            List<Sede> ListaTodasLasSedes = sedes.SeleccionarTodos();
+            List<Sede> ListaTodasLasSede = sede.SeleccionarTodos();
 
-            List<SedeDto> ListaTodasLasSedesDTO = new();
+            List<SedeDto> ListaTodasLasSedeDto = new();
 
-            foreach (var Sedeseleccionada in ListaTodasLasSedes)
+            foreach (var SedeSeleccionada in ListaTodasLasSede)
             {
-                SedeDto SedeDTo = new();
+                SedeDto SedeDTO = new();
 
-                SedeDTo.CodigoSede = Sedeseleccionada.CodigoSede;
-                SedeDTo.NombreSede = Sedeseleccionada.NombreSede;
-                SedeDTo.Telefono = Sedeseleccionada.Telefono;
-                SedeDTo.CorreoElectronico = Sedeseleccionada.CorreoElectronico;
-                SedeDTo.Direccion = Sedeseleccionada.Direccion;
-                SedeDTo.Activo = Sedeseleccionada.Activo;
+                SedeDTO.CodigoSede = SedeSeleccionada.CodigoSede;
+                SedeDTO.NombreSede = SedeSeleccionada.NombreSede;
+                SedeDTO.Telefono = SedeSeleccionada.Telefono;
+                SedeDTO.CorreoElectronico = SedeSeleccionada.CorreoElectronico;
+                SedeDTO.Direccion = SedeSeleccionada.Direccion;
+                SedeDTO.Activo = SedeSeleccionada.Activo;
 
-                ListaTodasLasSedesDTO.Add(SedeDTo);
+                ListaTodasLasSedeDto.Add(SedeDTO);
             }
 
-            return ListaTodasLasSedesDTO;
+            return ListaTodasLasSedeDto;
         }
 
-        // GET api/<SedesController>/5
+        // GET api/<AulasController>/5
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            Sede Sedeseleccionada = new();
+            Sede SedeSeleccionada = new();
 
-            Sedeseleccionada = sedes.SeleccionarPorId(id);
+            SedeSeleccionada = sede.SeleccionarPorId(id);
 
-            if (Sedeseleccionada.CodigoSede is null)
+            if (SedeSeleccionada.CodigoSede is null)
             {
                 return NotFound("Sede no encontrada");
             }
 
-            SedeDto sedeDTO = new();
+            SedeDto SedeDTO = new();
 
-            sedeDTO.CodigoSede = Sedeseleccionada.CodigoSede;
-            sedeDTO.NombreSede = Sedeseleccionada.NombreSede;
-            sedeDTO.Telefono = Sedeseleccionada.Telefono;
-            sedeDTO.CorreoElectronico = Sedeseleccionada.CorreoElectronico;
-            sedeDTO.Direccion = Sedeseleccionada.Direccion;
-            sedeDTO.Activo = Sedeseleccionada.Activo;
+            SedeDTO.CodigoSede = SedeSeleccionada.CodigoSede;
+            SedeDTO.NombreSede = SedeSeleccionada.NombreSede;
+            SedeDTO.Telefono = SedeSeleccionada.Telefono;
+            SedeDTO.CorreoElectronico = SedeSeleccionada.CorreoElectronico;
+            SedeDTO.Direccion = SedeSeleccionada.Direccion;
+            SedeDTO.Activo = SedeSeleccionada.Activo;
 
-            return Ok(sedeDTO);
+            return Ok(SedeDTO);
         }
 
-        // POST api/<SedesController>
+        // POST api/<AulasController>
         [HttpPost]
-        public IActionResult Post([FromBody] SedeDto sedeDTO)
+        public IActionResult Post([FromBody] SedeDto SedeDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -80,22 +81,22 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             Sede SedePorInsertar = new();
 
-            SedePorInsertar.CodigoSede = sedeDTO.CodigoSede;
-            SedePorInsertar.NombreSede = sedeDTO.NombreSede;
-            SedePorInsertar.Telefono = sedeDTO.Telefono;
-            SedePorInsertar.CorreoElectronico = sedeDTO.CorreoElectronico;
-            SedePorInsertar.Direccion = sedeDTO.Direccion;
+            SedePorInsertar.CodigoSede = SedeDTO.CodigoSede;
+            SedePorInsertar.NombreSede = SedeDTO.NombreSede;
+            SedePorInsertar.Telefono = SedeDTO.Telefono;
+            SedePorInsertar.CorreoElectronico = SedeDTO.CorreoElectronico;
+            SedePorInsertar.Direccion = SedeDTO.Direccion;
 
             SedePorInsertar.CreadoPor = "Ruiz";
 
-            sedes.Insertar(SedePorInsertar);
+            sede.Insertar(SedePorInsertar);
 
             return Ok();
         }
 
-        // PUT api/<SedesController>/5
+        // PUT api/<AulasController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(string id, [FromBody] SedeDto sedeDTO)
+        public IActionResult Put(string id, [FromBody] SedeDto SedeDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -104,7 +105,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             Sede SedeSeleccionada = new();
 
-            SedeSeleccionada = sedes.SeleccionarPorId(id);
+            SedeSeleccionada = sede.SeleccionarPorId(id);
 
             if (SedeSeleccionada.CodigoSede is null)
             {
@@ -113,28 +114,28 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             Sede SedePorActualizar = new();
 
-            SedePorActualizar.CodigoSede = sedeDTO.CodigoSede;
-            SedePorActualizar.NombreSede = sedeDTO.NombreSede;
-            SedePorActualizar.Telefono = sedeDTO.Telefono;
-            SedePorActualizar.CorreoElectronico = sedeDTO.CorreoElectronico;
-            SedePorActualizar.Direccion = sedeDTO.Direccion;
-            SedePorActualizar.Activo = sedeDTO.Activo;
+            SedePorActualizar.CodigoSede = SedeDTO.CodigoSede;
+            SedePorActualizar.NombreSede = SedeDTO.NombreSede;
+            SedePorActualizar.Telefono = SedeDTO.Telefono;
+            SedePorActualizar.CorreoElectronico = SedeDTO.CorreoElectronico;
+            SedePorActualizar.Direccion = SedeDTO.Direccion;
+            SedePorActualizar.Activo = SedeDTO.Activo;
 
             SedePorActualizar.FechaModificacion = System.DateTime.Now;
             SedePorActualizar.ModificadoPor = "Ruiz";
 
-            sedes.Actualizar(SedePorActualizar);
+            sede.Actualizar(SedePorActualizar);
 
             return Ok();
         }
 
-        // DELETE api/<SedesController>/5
+        // DELETE api/<AulasController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
             Sede SedeSeleccionada = new();
 
-            SedeSeleccionada = sedes.SeleccionarPorId(id);
+            SedeSeleccionada = sede.SeleccionarPorId(id);
 
             if (SedeSeleccionada.CodigoSede is null)
             {
@@ -143,7 +144,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             SedeSeleccionada.Activo = false;
 
-            sedes.Actualizar(SedeSeleccionada);
+            sede.Actualizar(SedeSeleccionada);
 
             return Ok("Registro eliminado");
         }

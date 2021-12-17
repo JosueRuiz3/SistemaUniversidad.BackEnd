@@ -17,7 +17,6 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             this._context = context;
             this._transaction = transaction;
         }
-
         public void Actualizar(Sede sede)
         {
 
@@ -43,6 +42,7 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
         public void Insertar(Sede sede)
         {
+
             var query = "SP_Sedes_Insertar";
             var command = CreateCommand(query);
             command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -55,9 +55,10 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             command.Parameters.AddWithValue("@CreadoPor", sede.CreadoPor);
 
             command.ExecuteNonQuery();
+
         }
 
-        public Sede SeleccionarPorId(string CodigoSede)
+        public Sede SeleccionarPorId(String CodigoSede)
         {
             var query = "SELECT * FROM vw_Sedes_SeleccionarActivos WHERE CodigoSede = @CodigoSede";
             var command = CreateCommand(query);
@@ -72,14 +73,15 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             {
                 SedeSeleccionada.CodigoSede = Convert.ToString(reader["CodigoSede"]);
                 SedeSeleccionada.NombreSede = Convert.ToString(reader["NombreSede"]);
-                SedeSeleccionada.Telefono = Convert.ToString(reader["v"]);
+                SedeSeleccionada.Telefono = Convert.ToString(reader["Telefono"]);
                 SedeSeleccionada.CorreoElectronico = Convert.ToString(reader["CorreoElectronico"]);
                 SedeSeleccionada.Direccion = Convert.ToString(reader["Direccion"]);
                 SedeSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
                 SedeSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
-                SedeSeleccionada.FechaModificacion = (DateTime)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
+                SedeSeleccionada.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
                 SedeSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
                 SedeSeleccionada.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
+
             }
 
             reader.Close();
@@ -89,12 +91,13 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
         public List<Sede> SeleccionarTodos()
         {
+
             var query = "SELECT * FROM vw_Sedes_SeleccionarActivos";
             var command = CreateCommand(query);
 
             SqlDataReader reader = command.ExecuteReader();
 
-            List<Sede> ListaTodasLasSedes = new List<Sede>();
+            List<Sede> ListaTodasLasSede = new List<Sede>();
 
             while (reader.Read())
             {
@@ -107,16 +110,16 @@ namespace SistemaUniversidad.BackEnd.API.Repository
                 SedeSeleccionada.Direccion = Convert.ToString(reader["Direccion"]);
                 SedeSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
                 SedeSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
-                SedeSeleccionada.FechaModificacion = (DateTime)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
+                SedeSeleccionada.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
                 SedeSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
                 SedeSeleccionada.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
 
-                ListaTodasLasSedes.Add(SedeSeleccionada);
+                ListaTodasLasSede.Add(SedeSeleccionada);
             }
 
             reader.Close();
 
-            return ListaTodasLasSedes;
+            return ListaTodasLasSede;
         }
     }
 }
