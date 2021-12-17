@@ -17,19 +17,19 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             this._context = context;
             this._transaction = transaction;
         }
-        public void Actualizar(CicloLectivo ciclolectivo)
+        public void Actualizar(CicloLectivo cicloLectivo)
         {
 
             var query = "SP_CiclosLectivos_Actualizar";
             var command = CreateCommand(query);
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@NumeroCiclo", ciclolectivo.NumeroCiclo);
-            command.Parameters.AddWithValue("@NombreCiclo", ciclolectivo.NombreCiclo);
-            command.Parameters.AddWithValue("@FechaInicio", ciclolectivo.FechaInicio);
-            command.Parameters.AddWithValue("@FechaFin", ciclolectivo.FechaFin);
-            command.Parameters.AddWithValue("@ModificadoPor", ciclolectivo.ModificadoPor);
-            command.Parameters.AddWithValue("@Activo", ciclolectivo.Activo);
+            command.Parameters.AddWithValue("@NumeroCiclo", cicloLectivo.NumeroCiclo);
+            command.Parameters.AddWithValue("@NombreCiclo", cicloLectivo.NombreCiclo);
+            command.Parameters.AddWithValue("@FechaInicio", cicloLectivo.FechaInicio);
+            command.Parameters.AddWithValue("@FechaFin", cicloLectivo.FechaFin);
+            command.Parameters.AddWithValue("@ModificadoPor", cicloLectivo.ModificadoPor);
+            command.Parameters.AddWithValue("@Activo", cicloLectivo.Activo);
 
             command.ExecuteNonQuery();
         }
@@ -39,18 +39,18 @@ namespace SistemaUniversidad.BackEnd.API.Repository
             throw new NotImplementedException();
         }
 
-        public void Insertar(CicloLectivo ciclolectivo)
+        public void Insertar(CicloLectivo cicloLectivo)
         {
 
             var query = "SP_CiclosLectivos_Insertar";
             var command = CreateCommand(query);
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@NumeroCiclo", ciclolectivo.NumeroCiclo);
-            command.Parameters.AddWithValue("@NombreCiclo", ciclolectivo.NombreCiclo);
-            command.Parameters.AddWithValue("@FechaInicio", ciclolectivo.FechaInicio);
-            command.Parameters.AddWithValue("@FechaFin", ciclolectivo.FechaFin);
-            command.Parameters.AddWithValue("@CreadoPor", ciclolectivo.CreadoPor);
+            command.Parameters.AddWithValue("@NumeroCiclo", cicloLectivo.NumeroCiclo);
+            command.Parameters.AddWithValue("@NombreCiclo", cicloLectivo.NombreCiclo);
+            command.Parameters.AddWithValue("@FechaInicio", cicloLectivo.FechaInicio);
+            command.Parameters.AddWithValue("@FechaFin", cicloLectivo.FechaFin);
+            command.Parameters.AddWithValue("@CreadoPor", cicloLectivo.CreadoPor);
 
             command.ExecuteNonQuery();
 
@@ -65,25 +65,25 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
             SqlDataReader reader = command.ExecuteReader();
 
-            CicloLectivo CicloLectivoSeleccionada = new();
+            CicloLectivo CicloLectivoSeleccionado = new();
 
             while (reader.Read())
             {
-                CicloLectivoSeleccionada.NumeroCiclo = Convert.ToString(reader["NumeroAula"]);
-                CicloLectivoSeleccionada.NombreCiclo = Convert.ToString(reader["NombreCiclo"]);
-                CicloLectivoSeleccionada.FechaInicio = Convert.ToDateTime(reader["NombreCiclo"]);
-                CicloLectivoSeleccionada.FechaFin = Convert.ToDateTime(reader["NombreCiclo"]);
-                CicloLectivoSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
-                CicloLectivoSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
-                CicloLectivoSeleccionada.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
-                CicloLectivoSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
-                CicloLectivoSeleccionada.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
+                CicloLectivoSeleccionado.NumeroCiclo = Convert.ToString(reader["NumeroCiclo"]);
+                CicloLectivoSeleccionado.NombreCiclo = Convert.ToString(reader["NombreCiclo"]);
+                CicloLectivoSeleccionado.FechaInicio = Convert.ToDateTime(reader["FechaInicio"]);
+                CicloLectivoSeleccionado.FechaFin = Convert.ToDateTime(reader["FechaFin"]);
+                CicloLectivoSeleccionado.Activo = Convert.ToBoolean(reader["Activo"]);
+                CicloLectivoSeleccionado.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                CicloLectivoSeleccionado.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
+                CicloLectivoSeleccionado.CreadoPor = Convert.ToString(reader["CreadoPor"]);
+                CicloLectivoSeleccionado.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
 
             }
 
             reader.Close();
 
-            return CicloLectivoSeleccionada;
+            return CicloLectivoSeleccionado;
         }
 
         public List<CicloLectivo> SeleccionarTodos()
@@ -94,28 +94,28 @@ namespace SistemaUniversidad.BackEnd.API.Repository
 
             SqlDataReader reader = command.ExecuteReader();
 
-            List<CicloLectivo> ListaTodoLosCiclosLectivos = new List<CicloLectivo>();
+            List<CicloLectivo> ListaTodosLosCicloLectivos = new List<CicloLectivo>();
 
             while (reader.Read())
             {
-                CicloLectivo CicloLectivoSeleccionada = new();
+                CicloLectivo CicloLectivoSeleccionado = new();
 
-                CicloLectivoSeleccionada.NumeroCiclo = Convert.ToString(reader["NumeroAula"]);
-                CicloLectivoSeleccionada.NombreCiclo = Convert.ToString(reader["NombreCiclo"]);
-                CicloLectivoSeleccionada.FechaInicio = Convert.ToDateTime(reader["NombreCiclo"]);
-                CicloLectivoSeleccionada.FechaFin = Convert.ToDateTime(reader["NombreCiclo"]);
-                CicloLectivoSeleccionada.Activo = Convert.ToBoolean(reader["Activo"]);
-                CicloLectivoSeleccionada.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
-                CicloLectivoSeleccionada.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
-                CicloLectivoSeleccionada.CreadoPor = Convert.ToString(reader["CreadoPor"]);
-                CicloLectivoSeleccionada.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
+                CicloLectivoSeleccionado.NumeroCiclo = Convert.ToString(reader["NumeroCiclo"]);
+                CicloLectivoSeleccionado.NombreCiclo = Convert.ToString(reader["NombreCiclo"]);
+                CicloLectivoSeleccionado.FechaInicio = Convert.ToDateTime(reader["FechaInicio"]);
+                CicloLectivoSeleccionado.FechaFin = Convert.ToDateTime(reader["FechaFin"]);
+                CicloLectivoSeleccionado.Activo = Convert.ToBoolean(reader["Activo"]);
+                CicloLectivoSeleccionado.FechaCreacion = Convert.ToDateTime(reader["FechaCreacion"]);
+                CicloLectivoSeleccionado.FechaModificacion = (DateTime?)(reader.IsDBNull("FechaModificacion") ? null : reader["FechaModificacion"]);
+                CicloLectivoSeleccionado.CreadoPor = Convert.ToString(reader["CreadoPor"]);
+                CicloLectivoSeleccionado.ModificadoPor = Convert.ToString(reader["ModificadoPor"]);
 
-                ListaTodoLosCiclosLectivos.Add(CicloLectivoSeleccionada);
+                ListaTodosLosCicloLectivos.Add(CicloLectivoSeleccionado);
             }
 
             reader.Close();
 
-            return ListaTodoLosCiclosLectivos;
+            return ListaTodosLosCicloLectivos;
         }
     }
 }

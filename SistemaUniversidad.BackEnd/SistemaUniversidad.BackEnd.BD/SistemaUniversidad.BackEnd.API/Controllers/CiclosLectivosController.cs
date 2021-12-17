@@ -12,56 +12,56 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
     [ApiController]
     public class CiclosLectivosController : ControllerBase
     {
-        private readonly ICicloLectivoService ciclolectivo;
+        private readonly ICicloLectivoService cicloLectivo;
         public CiclosLectivosController(ICicloLectivoService CicloLectivoService)
         {
-            ciclolectivo = CicloLectivoService;
+            cicloLectivo = CicloLectivoService;
         }
 
         // GET: api/<AulasController>
         [HttpGet]
         public List<CicloLectivoDto> Get()
         {
-            List<CicloLectivo> ListaTodoLosCiclosLectivos = ciclolectivo.SeleccionarTodos();
+            List<CicloLectivo> ListaTodosLosCicloLectivos = cicloLectivo.SeleccionarTodos();
 
-            List<CicloLectivoDto> ListaTodosLosCicloLectivoDto = new();
+            List<CicloLectivoDto> ListaTodosLosCicloLectivosDto = new();
 
-            foreach (var CicloLectivoSeleccionada in ListaTodoLosCiclosLectivos)
+            foreach (var CicloLectivoSeleccionado in ListaTodosLosCicloLectivos)
             {
                 CicloLectivoDto CicloLectivoDTO = new();
 
-                CicloLectivoDTO.NumeroCiclo = CicloLectivoSeleccionada.NumeroCiclo;
-                CicloLectivoDTO.NombreCiclo = CicloLectivoSeleccionada.NombreCiclo;
-                CicloLectivoDTO.FechaInicio = CicloLectivoSeleccionada.FechaInicio;
-                CicloLectivoDTO.FechaFin = CicloLectivoSeleccionada.FechaFin;
-                CicloLectivoDTO.Activo = CicloLectivoSeleccionada.Activo;
+                CicloLectivoDTO.NumeroCiclo = CicloLectivoSeleccionado.NumeroCiclo;
+                CicloLectivoDTO.NombreCiclo = CicloLectivoSeleccionado.NombreCiclo;
+                CicloLectivoDTO.FechaInicio = CicloLectivoSeleccionado.FechaInicio;
+                CicloLectivoDTO.FechaFin = CicloLectivoSeleccionado.FechaFin;
+                CicloLectivoDTO.Activo = CicloLectivoSeleccionado.Activo;
 
-                ListaTodosLosCicloLectivoDto.Add(CicloLectivoDTO);
+                ListaTodosLosCicloLectivosDto.Add(CicloLectivoDTO);
             }
 
-            return ListaTodosLosCicloLectivoDto;
+            return ListaTodosLosCicloLectivosDto;
         }
 
         // GET api/<AulasController>/5
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            CicloLectivo CicloLectivoSeleccionada = new();
+            CicloLectivo CicloLectivoSeleccionado = new();
 
-            CicloLectivoSeleccionada = ciclolectivo.SeleccionarPorId(id);
+            CicloLectivoSeleccionado = cicloLectivo.SeleccionarPorId(id);
 
-            if (CicloLectivoSeleccionada.NumeroCiclo is null)
+            if (CicloLectivoSeleccionado.NumeroCiclo is null)
             {
-                return NotFound("Ciclo Lectivo no encontrado");
+                return NotFound("Numero de Ciclo no encontrado");
             }
 
             CicloLectivoDto CicloLectivoDTO = new();
 
-            CicloLectivoDTO.NumeroCiclo = CicloLectivoSeleccionada.NumeroCiclo;
-            CicloLectivoDTO.NombreCiclo = CicloLectivoSeleccionada.NombreCiclo;
-            CicloLectivoDTO.FechaInicio = CicloLectivoSeleccionada.FechaInicio;
-            CicloLectivoDTO.FechaFin = CicloLectivoSeleccionada.FechaFin;
-            CicloLectivoDTO.Activo = CicloLectivoSeleccionada.Activo;
+            CicloLectivoDTO.NumeroCiclo = CicloLectivoSeleccionado.NumeroCiclo;
+            CicloLectivoDTO.NombreCiclo = CicloLectivoSeleccionado.NombreCiclo;
+            CicloLectivoDTO.FechaInicio = CicloLectivoSeleccionado.FechaInicio;
+            CicloLectivoDTO.FechaFin = CicloLectivoSeleccionado.FechaFin;
+            CicloLectivoDTO.Activo = CicloLectivoSeleccionado.Activo;
 
             return Ok(CicloLectivoDTO);
         }
@@ -84,7 +84,7 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             CicloLectivoPorInsertar.CreadoPor = "Ruiz";
 
-            ciclolectivo.Insertar(CicloLectivoPorInsertar);
+            cicloLectivo.Insertar(CicloLectivoPorInsertar);
 
             return Ok();
         }
@@ -98,13 +98,13 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
                 return BadRequest(ModelState.Values);
             }
 
-            CicloLectivo CicloLectivoSeleccionada = new();
+            CicloLectivo CicloLectivoSeleccionado = new();
 
-            CicloLectivoSeleccionada = ciclolectivo.SeleccionarPorId(id);
+            CicloLectivoSeleccionado = cicloLectivo.SeleccionarPorId(id);
 
-            if (CicloLectivoSeleccionada.NumeroCiclo is null)
+            if (CicloLectivoSeleccionado.NumeroCiclo is null)
             {
-                return NotFound("Ciclo Lectivo no encontrada");
+                return NotFound("Numero de Ciclo no encontrado");
             }
 
             CicloLectivo CicloLectivoPorActualizar = new();
@@ -117,8 +117,8 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
 
             CicloLectivoPorActualizar.FechaModificacion = System.DateTime.Now;
             CicloLectivoPorActualizar.ModificadoPor = "Ruiz";
-           
-            ciclolectivo.Actualizar(CicloLectivoPorActualizar);
+
+            cicloLectivo.Actualizar(CicloLectivoPorActualizar);
 
             return Ok();
         }
@@ -127,18 +127,18 @@ namespace SistemaUniversidad.BackEnd.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            CicloLectivo CicloLectivoSeleccionada = new();
+            CicloLectivo CicloLectivoSeleccionado = new();
 
-            CicloLectivoSeleccionada = ciclolectivo.SeleccionarPorId(id);
+            CicloLectivoSeleccionado = cicloLectivo.SeleccionarPorId(id);
 
-            if (CicloLectivoSeleccionada.NumeroCiclo is null)
+            if (CicloLectivoSeleccionado.NumeroCiclo is null)
             {
-                return NotFound("Ciclo Lectivo no encontrado");
+                return NotFound("Numero de Ciclo no encontrado");
             }
 
-            CicloLectivoSeleccionada.Activo = false;
+            CicloLectivoSeleccionado.Activo = false;
 
-            ciclolectivo.Actualizar(CicloLectivoSeleccionada);
+            cicloLectivo.Actualizar(CicloLectivoSeleccionado);
 
             return Ok("Registro eliminado");
         }
