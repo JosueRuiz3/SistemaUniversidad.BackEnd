@@ -9,7 +9,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
     {
         public string CodigoCurso { get; set; }
         public string NumeroAula { get; set; }
-        public int NumeroCiclo { get; set; }
+        public string NumeroCiclo { get; set; }
         public string HorarioInicio { get; set; }
         public string HorarioFin { get; set; }
         public string DiaDeLaSemana { get; set; }
@@ -20,7 +20,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
         public string ModificadoPor { get; set; }
 
         public virtual Curso CodigoCursoNavigation { get; set; }
-        //public virtual Aula NumeroAulaNavigation { get; set; }
-        //public virtual CicloLectivo NumeroCicloNavigation { get; set; }
+        public virtual Aula NumeroAulaNavigation { get; set; }
+        public virtual CicloLectivo NumeroCicloNavigation { get; set; }
     }
 }

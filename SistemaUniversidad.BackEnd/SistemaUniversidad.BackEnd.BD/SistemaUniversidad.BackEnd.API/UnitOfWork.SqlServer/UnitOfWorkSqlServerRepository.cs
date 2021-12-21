@@ -20,6 +20,8 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.SqlServer
         public ICursosRepository CursosRepository { get; }
 
         public ICursosConProfesoresRepository CursosConProfesoresRepository { get; }
+
+        public ICursosEnAulasRepository CursosEnAulasRepository { get; }
         //Acá van todos los otros repositorios
         public UnitOfWorkSqlServerRepository(SqlConnection context, SqlTransaction transaction)
         {
@@ -34,6 +36,8 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.SqlServer
             CursosRepository = new CursosRepository(context, transaction);
 
             CursosConProfesoresRepository = new CursosConProfesoresRepository(context, transaction);
+
+            CursosEnAulasRepository = new CursosEnAulaRepository(context, transaction);
             //Acá van todos los otros repositorios
 
         }

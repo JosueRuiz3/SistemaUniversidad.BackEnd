@@ -49,6 +49,7 @@ namespace SistemaUniversidad.BackEnd.API
             services.AddTransient<ICicloLectivoService, CicloLectivoService>();
             services.AddTransient<ICursoService, CursoService>();
             services.AddTransient<ICursosConProfesoreService, CursosConProfesoreService>();
+            services.AddTransient<ICursosEnAulaService, CursosEnAulaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

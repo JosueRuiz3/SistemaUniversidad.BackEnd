@@ -6,7 +6,6 @@ CREATE PROCEDURE SP_CursosEnAulas_Actualizar
 	@HorarioInicio VARCHAR (30),
 	@HorarioFin VARCHAR (30),
 	@DiaDeLaSemana VARCHAR (30),
-    @CreadoPor VARCHAR(50),
 	@ModificadoPor VARCHAR(60)
 	AS
 	IF EXISTS (SELECT *FROM CursosEnAulas WHERE NumeroCiclo = @NumeroCiclo and HorarioInicio= @HorarioInicio and HorarioFin=@HorarioFin AND DiaDeLaSemana= @DiaDeLaSemana)
@@ -27,7 +26,6 @@ BEGIN
 		HorarioInicio = @HorarioInicio,
 		HorarioFin = @HorarioFin,
 		DiaDeLaSemana = @DiaDeLaSemana,
-		CreadoPor = @CreadoPor,
 		ModificadoPor = @ModificadoPor
 	WHERE
 		CodigoCurso = @CodigoCurso
