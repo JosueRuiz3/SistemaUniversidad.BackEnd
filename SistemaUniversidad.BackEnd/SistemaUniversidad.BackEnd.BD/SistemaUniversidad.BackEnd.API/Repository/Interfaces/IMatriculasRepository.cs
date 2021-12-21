@@ -3,7 +3,7 @@ using SistemaUniversidad.BackEnd.API.Models;
 
 namespace SistemaUniversidad.BackEnd.API.Repository.Interfaces
 {
-    public interface IMatriculasRepository : IObtenerRepository<Matricula, string>, IInsertarRepository<Matricula>, IActualizarRepository<Matricula>, IEliminarRepository<int>
+    public interface IMatriculasRepository : IObtenerRepository<Matricula, string>, IInsertarRepository<Matricula>, IActualizarRepository<Matricula>, IEliminarRepository<string>
     {
     }
 }

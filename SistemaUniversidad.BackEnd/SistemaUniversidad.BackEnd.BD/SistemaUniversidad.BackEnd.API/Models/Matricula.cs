@@ -13,7 +13,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
         }
 
         public int NumeroMatricula { get; set; }
-        public int NumeroCiclo { get; set; }
+        public string NumeroCiclo { get; set; }
         public string CedulaEstudiante { get; set; }
         public decimal MontoMatricula { get; set; }
         public decimal? MontoCursos { get; set; }
@@ -25,7 +25,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
         public string ModificadoPor { get; set; }
 
         public virtual Estudiante CedulaEstudianteNavigation { get; set; }
-        //public virtual CicloLectivo NumeroCicloNavigation { get; set; }
+        public virtual CicloLectivo NumeroCicloNavigation { get; set; }
         public virtual ICollection<CursosEnMatricula> CursosEnMatriculas { get; set; }
     }
 }

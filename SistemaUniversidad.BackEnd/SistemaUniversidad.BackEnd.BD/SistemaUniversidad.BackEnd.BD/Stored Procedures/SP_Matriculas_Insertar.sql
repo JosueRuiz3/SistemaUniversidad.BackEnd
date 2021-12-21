@@ -1,6 +1,6 @@
 ﻿--PROCEDIMIENTO ALMACENADO INSERTAR MATRICULA
 CREATE PROCEDURE SP_Matriculas_Insertar
-	@NumeroCiclo INT,
+	@NumeroCiclo VARCHAR(10),
 	@MontoMatricula DECIMAL(18,3), 
 	@CedulaEstudiante VARCHAR(15),
     @CreadoPor VARCHAR(50)

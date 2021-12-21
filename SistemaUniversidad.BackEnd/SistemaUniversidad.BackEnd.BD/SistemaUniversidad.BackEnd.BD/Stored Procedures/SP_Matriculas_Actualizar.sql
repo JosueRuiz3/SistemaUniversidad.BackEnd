@@ -1,10 +1,9 @@
 ﻿--PROCEDIMIENTO ALMACENADO ACTUALIZAR MATRICULA
 CREATE PROCEDURE SP_Matriculas_Actualizar
 	@NumeroMatricula INT,
-	@NumeroCiclo INT,
+	@NumeroCiclo VARCHAR(10),
 	@MontoMatricula DECIMAL(18,3),
 	@CedulaEstudiante VARCHAR(15),
-    @CreadoPor VARCHAR(50),
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN 
@@ -17,7 +16,6 @@ BEGIN
 		NumeroCiclo = @NumeroCiclo,
 		MontoMatricula = @MontoMatricula, 
 		CedulaEstudiante = @CedulaEstudiante,
-		CreadoPor = @CreadoPor,
 		ModificadoPor = @ModificadoPor
 	WHERE
 		NumeroMatricula = @NumeroMatricula

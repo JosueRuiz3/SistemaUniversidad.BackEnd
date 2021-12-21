@@ -13,7 +13,7 @@ namespace SistemaUniversidad.BackEnd.API.Dtos
         public int NumeroMatricula { get; set; }
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
-        public int NumeroCiclo { get; set; }
+        public string NumeroCiclo { get; set; }
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
         public string CedulaEstudiante { get; set; }
