@@ -9,7 +9,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
     {
         public int NumeroMatricula { get; set; }
         public string CodigoCurso { get; set; }
-        public int NumeroCiclo { get; set; }
+        public string NumeroCiclo { get; set; }
         public bool? Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
@@ -17,7 +17,7 @@ namespace SistemaUniversidad.BackEnd.API.Models
         public string ModificadoPor { get; set; }
 
         public virtual Curso CodigoCursoNavigation { get; set; }
-        //public virtual CicloLectivo NumeroCicloNavigation { get; set; }
+        public virtual CicloLectivo NumeroCicloNavigation { get; set; }
         public virtual Matricula NumeroMatriculaNavigation { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 CREATE PROCEDURE SP_CursosEnMatriculas_Insertar
 	@NumeroMatricula INT,
 	@CodigoCurso VARCHAR(10),
-	@NumeroCiclo INT,
+	@NumeroCiclo VARCHAR(10),
 	@CreadoPor VARCHAR(50)
 	AS
 BEGIN
