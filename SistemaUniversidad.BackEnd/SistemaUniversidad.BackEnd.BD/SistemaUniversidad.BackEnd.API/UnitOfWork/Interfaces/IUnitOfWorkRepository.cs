@@ -22,5 +22,7 @@ namespace SistemaUniversidad.BackEnd.API.UnitOfWork.Interfaces
         ICursosEnMatriculasRepository CursosEnMatriculasRepository { get; }
 
         IMatriculasRepository MatriculasRepository { get; }
+
+        IEstudiantesRepository EstudiantesRepository { get; }
     }
 }

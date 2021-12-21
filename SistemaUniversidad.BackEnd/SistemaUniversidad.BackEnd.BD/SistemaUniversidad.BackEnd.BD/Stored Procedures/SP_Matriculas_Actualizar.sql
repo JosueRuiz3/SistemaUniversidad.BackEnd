@@ -3,7 +3,7 @@ CREATE PROCEDURE SP_Matriculas_Actualizar
 	@NumeroMatricula INT,
 	@NumeroCiclo VARCHAR(10),
 	@MontoMatricula DECIMAL(18,3),
-	@CedulaEstudiante VARCHAR(15),
+	@CedulaEstudiante VARCHAR(20),
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN 
