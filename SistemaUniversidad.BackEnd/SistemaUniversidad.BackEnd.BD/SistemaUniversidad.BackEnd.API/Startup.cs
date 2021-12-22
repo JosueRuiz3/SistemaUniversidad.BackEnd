@@ -42,6 +42,15 @@ namespace SistemaUniversidad.BackEnd.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SistemaUniversidad.BackEnd.API", Version = "v1" });
             });
 
+            services.AddCors(c =>
+            {
+
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                c.AddPolicy("AllowHeaders", options => options.AllowAnyHeader());
+                c.AddPolicy("AllowHeaders", options => options.AllowAnyMethod());
+            }
+            );
+
             services.AddTransient<IUnitOfWork, UnitOfWorkSqlServer>();
             services.AddTransient<IAulasService, AulaService>();
             services.AddTransient<ISedeService, SedeService>();
@@ -66,6 +75,8 @@ namespace SistemaUniversidad.BackEnd.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SistemaUniversidad.BackEnd.API v1"));
             }
+
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseHttpsRedirection();
 
