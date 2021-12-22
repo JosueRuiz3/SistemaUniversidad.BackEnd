@@ -9,7 +9,7 @@ namespace SistemaUniversidad.BackEnd.API.Dtos
     public class ProfesoreDto
     {
         [Required(ErrorMessage = "{0} es un campo obligatorio")]
-        [MaxLength(10, ErrorMessage = "{0} tiene que tener máximo {1} caracteres")]
+        [MaxLength(20, ErrorMessage = "{0} tiene que tener máximo {1} caracteres")]
         public string CedulaProfesor { get; set; }
 
         [Required(ErrorMessage = "{0} es un campo obligatorio")]

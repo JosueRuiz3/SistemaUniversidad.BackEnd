@@ -7,7 +7,7 @@ CREATE PROCEDURE SP_Profesores_Actualizar
 	@Profesion VARCHAR(30),
 	@CorreoElectronico VARCHAR(50),
 	@Edad INT,
-	@CreadoPor VARCHAR(50),
+	@Activo BIT,
 	@ModificadoPor VARCHAR(60)
 	AS
 BEGIN 
@@ -17,14 +17,15 @@ BEGIN
 
 	UPDATE Profesores
 	SET
+		CedulaProfesor = @CedulaProfesor,
 		NombreProfesor = @NombreProfesor,
 		Apellidos=@Apellidos,
 		Telefono=@Telefono,
 		Profesion=@Profesion,
 		CorreoElectronico=@CorreoElectronico,
 		Edad=@Edad,
+		Activo = @Activo,
 		FechaModificacion = @FechaModificacion,
-		CreadoPor = @CreadoPor, 
 		ModificadoPor = @ModificadoPor
 	WHERE 
 		CedulaProfesor = @CedulaProfesor
